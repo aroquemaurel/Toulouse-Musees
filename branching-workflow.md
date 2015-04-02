@@ -7,7 +7,7 @@ Le principe est simple : une issue = une branche.
 
 Ci-dessous, l'arbre que nous devrions avoir : 
 
-![image](./images/BranchingWorkflow.png)
+![image](https://raw.githubusercontent.com/FACT-Team/FactDev/S5/images/BranchingWorkflow.png)
 
 
 ## Le principe
