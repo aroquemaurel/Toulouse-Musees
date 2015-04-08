@@ -15,6 +15,9 @@ class ManagerSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test a valid manager"() {
+    }
+
+    void "test an unvalid manager"() {
     }
 }

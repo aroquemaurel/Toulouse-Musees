@@ -15,6 +15,9 @@ class MuseumSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test a valid museum"() {
+    }
+
+    void "test an unvalid museum"() {
     }
 }

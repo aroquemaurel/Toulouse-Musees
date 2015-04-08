@@ -15,6 +15,9 @@ class AskingMuseumVisitSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test a valid askingmuseumvisit"() {
+    }
+
+    void "test an unvalid askingmuseumvisit"() {
     }
 }
