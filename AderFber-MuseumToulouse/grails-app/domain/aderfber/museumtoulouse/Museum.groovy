@@ -6,6 +6,7 @@ class Museum {
     private String phone
     private String subwayAccess
     private String busAccess
+    private Address address
 
     static constraints = {
     }
