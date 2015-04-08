@@ -11,9 +11,9 @@ class Museum {
     static constraints = {
         name blank : false
         openingHours blank: false
-        phone blank: true
-        subwayAccess blank : true
-        busAccess blank : true
+        phone blank: true, nullable: true
+        subwayAccess blank : true, nullable: true
+        busAccess blank : true, nullable: true
         address nullable: false
     }
 }
