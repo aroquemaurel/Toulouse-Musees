@@ -7,6 +7,12 @@ This project is developped by :
 - Florent Berbie (@KraTuX)
 - Antoine de Roquemaurel (@aroquemaurel)
 
+## The project
+Toulouse wants to help tourists in specific period. We develop an application for registration of users who would like to visit museums.
+
+Utils museums data is in [Musee.csv](documents/Musee.csv) file. 
+This file was created by [Toulouse Museum](https://data.toulouse-metropole.fr/)
+
 ## Developers ? 
 We use the git branching workflow, you can have it in french [here](branching-workflow.md)
 
