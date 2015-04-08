@@ -1,11 +1,14 @@
 package aderfber.museumtoulouse
 
 class Address {
-    private int number
-    private String street
-    private String postalCode
-    private String city
+    int number
+    String street
+    String postalCode
+    String city
 
     static constraints = {
+        street blank : true, nullable: true
+        postalCode blank : false, nullable: false
+        city blank : false, nullable: false
     }
 }

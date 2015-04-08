@@ -1,9 +1,10 @@
 package aderfber.museumtoulouse
 
 class AskingMuseumVisit {
-    private Date askingDate
-    private static hasMany = [museums: Museum, askingMuseumVisits: AskingVisit]
+    Date askingDate
+    static hasMany = [museums: Museum, askingMuseumVisits: AskingVisit]
 
     static constraints = {
+        askingDate nullable: false
     }
 }

@@ -1,12 +1,17 @@
 package aderfber.museumtoulouse
 
 class AskingVisit {
-    private int code
-    private Date beginPeriodDate
-    private Date endPeriodDate
-    private int nbPeople
-    private int status = 0
+    int code
+    Date beginPeriodDate
+    Date endPeriodDate
+    int nbPeople
+    int status = 0
 
     static constraints = {
+        code nullable: false
+        beginPeriodDate nullable: false
+        endPeriodDate nullable: false
+        status inList: [0..2]
+        nbPeople min: 0
     }
 }
