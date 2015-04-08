@@ -15,9 +15,29 @@ class ManagerSpec extends Specification {
     def cleanup() {
     }
 
-    void "test a valid manager"() {
+    void "test a valid manager"(pfirstname, plastname) {
+        given: "A manager is created"
+        Manager myManager = new Manager(firstname: pfirstname, lastname: plastname)
+
+        expect: "Manager is valid"
+        myManager.validate() == true
+
+        where:
+        pfirstname  |   plastname
+        "Bonneau"   |  "Jean"
     }
 
-    void "test an unvalid manager"() {
+    void "test an unvalid manager"(pfirstname, plastname) {
+        given: "A manager is created"
+        Manager myManager = new Manager(firstname: pfirstname, lastname: plastname)
+
+        expect: "Manager is invalid"
+        myManager.validate() == false
+
+        where:
+        pfirstname  |   plastname
+        null        |  "Jean"
+        "Bonneau"   | null
+        null        | null
     }
 }

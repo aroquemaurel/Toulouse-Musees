@@ -11,7 +11,8 @@ class AskingVisit {
         code nullable: false
         beginPeriodDate nullable: false
         endPeriodDate nullable: false
-        status inList: [0..2]
         nbPeople min: 0
+        status inList: [0,1,2]
     }
+
 }
