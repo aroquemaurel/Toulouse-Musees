@@ -8,19 +8,12 @@ import spock.lang.Specification
  */
 @TestFor(AskingMuseumVisit)
 class AskingMuseumVisitSpec extends Specification {
-
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
     void "test a valid askingmuseumvisit"() {
         given: "An asking visit is created"
         AskingMuseumVisit askingMuseumVisit = new AskingMuseumVisit(
                 askingDate: new Date(2012,4,12),
                 museum : Mock(Museum),
-                askingVistit: Mock(AskingVisit))
+                askingVisit: Mock(AskingVisit))
 
         expect: "Asking museum visit is valid"
         askingMuseumVisit.validate()
@@ -34,7 +27,7 @@ class AskingMuseumVisitSpec extends Specification {
                 museum : pMuseum,
                 askingVistit: pAskingVisit)
 
-        expect: "Asking museum visit is valid"
+        expect: "Asking museum visit is invalid"
         !askingMuseumVisit.validate()
 
         where:

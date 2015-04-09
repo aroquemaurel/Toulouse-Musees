@@ -16,7 +16,7 @@ class AddressSpec extends Specification {
         Address myAddress = new Address(number: pnumber, street: pstreet, postalCode: ppostalCode, city: pcity)
 
         expect: "Address is valid"
-        myAddress.validate() == true
+        myAddress.validate()
 
         where:
         pnumber  |   pstreet                        | ppostalCode | pcity
@@ -33,7 +33,7 @@ class AddressSpec extends Specification {
         Address myAddress = new Address(number: pnumber, street: pstreet, postalCode: ppostalCode, city: pcity)
 
         expect: "Address is valid"
-        myAddress.validate() == false
+        !myAddress.validate()
 
         where:
         pnumber  |   pstreet                        | ppostalCode | pcity
