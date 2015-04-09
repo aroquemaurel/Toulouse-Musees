@@ -10,8 +10,11 @@ class AskingVisitControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["code"] = 42
+        params["beginPeriodDate"] = new Date(2010, 5, 5)
+        params["endPeriodDate"] = new Date(2015, 5, 5)
+        params["nbPeople"] = 1
+        params["status"] = 1
     }
 
     void "Test the index action returns the correct model"() {

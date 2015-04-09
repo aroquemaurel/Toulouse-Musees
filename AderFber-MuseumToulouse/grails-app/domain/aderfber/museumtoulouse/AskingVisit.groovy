@@ -1,7 +1,7 @@
 package aderfber.museumtoulouse
 
 class AskingVisit {
-    int code
+    Integer code
     Date beginPeriodDate
     Date endPeriodDate
     int nbPeople
