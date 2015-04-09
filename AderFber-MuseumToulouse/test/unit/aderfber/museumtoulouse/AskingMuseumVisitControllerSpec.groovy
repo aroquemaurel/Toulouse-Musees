@@ -6,13 +6,22 @@ import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(AskingMuseumVisitController)
-@Mock(AskingMuseumVisit)
+@Mock([AskingMuseumVisit, Museum, AskingVisit, Address, Manager])
 class AskingMuseumVisitControllerSpec extends Specification {
+    Museum museum
+    AskingVisit askingVisit
+
+    def setup() {
+        museum = new Museum(name: "machin", openingHours: "hours", address: new Address(number: "42", street: "yrdy", postalCode: "21522", city: "test"), manager: new Manager(firstname: "truc", lastname: "chose")).save(failOnError: true)
+        askingVisit = new AskingVisit(code: 43, beginPeriodDate: new Date(2101, 1, 1), endPeriodDate: new Date(2015, 1, 1), nbPeople: 42, status:0).save(failOnError: true)
+    }
 
     def populateValidParams(params) {
         assert params != null
         // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["askingDate"] = new Date(2010, 1, 1)
+        params["museum"] = museum;
+        params["askingVisit"] = askingVisit;
     }
 
     void "Test the index action returns the correct model"() {
