@@ -1,1 +1,28 @@
 .idea
+
+# .gitignore for Grails 1.0.3
+
+# web application files that are overwritten by "grails
+# upgrade"
+#  cf. GRAILS_HOME/scripts/Upgrade.groovy, target( upgrade )
+AderFber-MuseumToulouse/web-app/WEB-INF
+
+# IDE support files that are overwritten by "grails upgrade"
+#  cf. GRAILS_HOME/scripts/CreateApp.groovy, target(
+#  createIDESupportFiles )
+# to be specific, you could replace "/*" below with your
+# project name,
+#  e.g. "foobar.launch" (no slash)
+AderFber-MuseumToulouse/.classpath
+AderFber-MuseumToulouse/.project
+AderFber-MuseumToulouse/.settings
+AderFber-MuseumToulouse/*.launch
+AderFber-MuseumToulouse/*.tmp
+AderFber-MuseumToulouse/target
+AderFber-MuseumToulouse/out
+
+# logs
+AderFber-MuseumToulouse/test/reports
+
+# project release file
+AderFber-MuseumToulouse/*.war
