@@ -1,11 +1,9 @@
 package aderfber.museumtoulouse
 
 class Manager {
-    String firstname
-    String lastname
+    String name
 
     static constraints = {
-        firstname blank: false
-        lastname blank: false
+        name blank: false
     }
 }
