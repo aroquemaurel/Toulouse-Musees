@@ -7,6 +7,7 @@ class Museum {
     String subwayAccess
     String busAccess
     Address address
+    Manager manager
 
     static constraints = {
         name blank : false
@@ -15,5 +16,6 @@ class Museum {
         subwayAccess blank : true, nullable: true
         busAccess blank : true, nullable: true
         address nullable: false
+        manager nullable: false
     }
 }
