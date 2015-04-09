@@ -9,29 +9,19 @@ import spock.lang.Unroll
  */
 @TestFor(Manager)
 class ManagerSpec extends Specification {
-    void "test a valid manager"(pfirstname, plastname) {
+    void "test a valid manager"() {
         given: "A manager is created"
-        Manager myManager = new Manager(firstname: pfirstname, lastname: plastname)
+        Manager myManager = new Manager(name: "Mairie de Toulouse - DGA Culture")
 
         expect: "Manager is valid"
         myManager.validate()
-
-        where:
-        pfirstname  |   plastname
-        "Bonneau"   |  "Jean"
     }
 
-    void "test an unvalid manager"(pfirstname, plastname) {
+    void "test an unvalid manager"() {
         given: "A manager is created"
-        Manager myManager = new Manager(firstname: pfirstname, lastname: plastname)
+        Manager myManager = new Manager(name: null)
 
         expect: "Manager is invalid"
         !myManager.validate()
-
-        where:
-        pfirstname  |   plastname
-        null        |  "Jean"
-        "Bonneau"   | null
-        null        | null
     }
 }
