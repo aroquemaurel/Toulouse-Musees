@@ -56,5 +56,6 @@ class AskingVisitSpec extends Specification {
         22      | new Date(1989,7,18)   | new Date(1989,7,19)   | -2        | 2
         22      | new Date(1989,7,18)   | new Date(1989,7,19)   | 12        | 3
         22      | new Date(1989,7,18)   | new Date(1989,7,19)   | 12        | -1
+        22      | new Date(1989,7,20)   | new Date(1989,7,19)   | 12        | -1
     }
 }
