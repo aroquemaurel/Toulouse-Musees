@@ -2,12 +2,14 @@ package aderfber.museumtoulouse
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
 @TestFor(Museum)
 class MuseumSpec extends Specification {
+
     void "test a valid museum"(pname, popeninghours, pphone, psubwayAccess, pbusAccess) {
         given: "an initialize museum"
         Museum museum = new Museum(name: pname, openingHours: popeninghours, phone: pphone,

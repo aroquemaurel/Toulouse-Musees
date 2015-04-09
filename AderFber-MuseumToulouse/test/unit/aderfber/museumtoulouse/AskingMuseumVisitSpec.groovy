@@ -2,12 +2,14 @@ package aderfber.museumtoulouse
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
 @TestFor(AskingMuseumVisit)
 class AskingMuseumVisitSpec extends Specification {
+    @Unroll
     void "test a valid askingmuseumvisit"() {
         given: "An asking visit is created"
         AskingMuseumVisit askingMuseumVisit = new AskingMuseumVisit(
@@ -19,7 +21,7 @@ class AskingMuseumVisitSpec extends Specification {
         askingMuseumVisit.validate()
 
     }
-
+    @Unroll
     void "test an unvalid askingmuseumvisit"(pAskingDate, pMuseum, pAskingVisit) {
         given: "An asking visit is created"
         AskingMuseumVisit askingMuseumVisit = new AskingMuseumVisit(
