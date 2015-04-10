@@ -74,7 +74,10 @@ class MuseumController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Museum.label', default: 'Museum'), museumInstance.id])
+                flash.message =
+                        message(code: 'default.updated.message',
+                                args: [message(code: 'Museum.label',
+                                default: 'Museum'), museumInstance.id])
                 redirect museumInstance
             }
             '*' { respond museumInstance, [status: OK] }
@@ -94,7 +97,10 @@ class MuseumController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Museum.label', default: 'Museum'), museumInstance.id])
+                flash.message =
+                        message(code: 'default.deleted.message',
+                                args: [message(code: 'Museum.label',
+                                default: 'Museum'), museumInstance.id])
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NO_CONTENT }

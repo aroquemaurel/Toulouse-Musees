@@ -23,20 +23,11 @@
 			</g:if>
 			<ol class="property-list manager">
 			
-				<g:if test="${managerInstance?.firstname}">
+				<g:if test="${managerInstance?.name}">
 				<li class="fieldcontain">
-					<span id="firstname-label" class="property-label"><g:message code="manager.firstname.label" default="Firstname" /></span>
+					<span id="name-label" class="property-label"><g:message code="manager.name.label" default="Name" /></span>
 					
-						<span class="property-value" aria-labelledby="firstname-label"><g:fieldValue bean="${managerInstance}" field="firstname"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${managerInstance?.lastname}">
-				<li class="fieldcontain">
-					<span id="lastname-label" class="property-label"><g:message code="manager.lastname.label" default="Lastname" /></span>
-					
-						<span class="property-value" aria-labelledby="lastname-label"><g:fieldValue bean="${managerInstance}" field="lastname"/></span>
+						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${managerInstance}" field="name"/></span>
 					
 				</li>
 				</g:if>
