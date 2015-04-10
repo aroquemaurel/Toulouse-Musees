@@ -7,6 +7,8 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class MuseumController {
 
+    MuseumService museumService
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -34,11 +36,16 @@ class MuseumController {
             return
         }
 
-        museumInstance.save flush: true
+        Address address = Address.get(museumInstance.address)
+        Manager manager = Manager.get(museumInstance.manager)
+        museumService.insertOrUpdateMuseum(museumInstance,address,manager)
+        //museumInstance.save flush: true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'museum.label', default: 'Museum'), museumInstance.id])
+                flash.message = message(code: 'default.created.message',
+                                    args: [message(code: 'museum.label',
+                                    default: 'Museum'), museumInstance.id])
                 redirect museumInstance
             }
             '*' { respond museumInstance, [status: CREATED] }
@@ -60,8 +67,10 @@ class MuseumController {
             respond museumInstance.errors, view: 'edit'
             return
         }
-
-        museumInstance.save flush: true
+        Address address = Address.get(museumInstance.address)
+        Manager manager = Manager.get(museumInstance.manager)
+        museumService.insertOrUpdateMuseum(museumInstance,address,manager)
+        //museumInstance.save flush: true
 
         request.withFormat {
             form multipartForm {
@@ -80,7 +89,8 @@ class MuseumController {
             return
         }
 
-        museumInstance.delete flush: true
+        museumService.deleteMuseum(museumInstance)
+        //museumInstance.delete flush: true
 
         request.withFormat {
             form multipartForm {
