@@ -11,10 +11,10 @@ class AddressControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
-        params["number"] = "42"
-        params["street"] = "Street of bayonne"
-        params["postalCode"] = "31500"
-        params["city"] = "Toulouse"
+        params["number"] = '42'
+        params["street"] = 'Street of bayonne'
+        params["postalCode"] = '31500'
+        params["city"] = 'Toulouse'
     }
 
     void "Test the index action returns the correct model"() {

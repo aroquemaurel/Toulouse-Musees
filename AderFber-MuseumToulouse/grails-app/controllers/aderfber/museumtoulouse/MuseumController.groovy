@@ -36,9 +36,10 @@ class MuseumController {
             return
         }
 
-        Address address = Address.get(museumInstance.address)
-        Manager manager = Manager.get(museumInstance.manager)
-        museumService.insertOrUpdateMuseum(museumInstance,address,manager)
+        //Address address = Address.get(museumInstance.address.id)
+        //Manager manager = Manager.get(museumInstance.manager.id)
+        museumService.insertOrUpdateMuseum(museumInstance,
+                museumInstance.address,museumInstance.manager)
         //museumInstance.save flush: true
 
         request.withFormat {
@@ -67,11 +68,11 @@ class MuseumController {
             respond museumInstance.errors, view: 'edit'
             return
         }
-        Address address = Address.get(museumInstance.address)
-        Manager manager = Manager.get(museumInstance.manager)
+        Address address = Address.get(museumInstance.address.id)
+        Manager manager = Manager.get(museumInstance.manager.id)
         museumService.insertOrUpdateMuseum(museumInstance,address,manager)
         //museumInstance.save flush: true
-
+/*
         request.withFormat {
             form multipartForm {
                 flash.message =
@@ -82,6 +83,7 @@ class MuseumController {
             }
             '*' { respond museumInstance, [status: OK] }
         }
+   */
     }
 
     @Transactional
@@ -94,7 +96,7 @@ class MuseumController {
 
         museumService.deleteMuseum(museumInstance)
         //museumInstance.delete flush: true
-
+/*
         request.withFormat {
             form multipartForm {
                 flash.message =
@@ -105,15 +107,21 @@ class MuseumController {
             }
             '*' { render status: NO_CONTENT }
         }
+        */
     }
 
     protected void notFound() {
+        /*
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'museum.label', default: 'Museum'), params.id])
+                flash.message =
+                        message(code: 'default.not.found.message',
+                                args: [message(code: 'museum.label',
+                                default: 'Museum'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NOT_FOUND }
         }
+        */
     }
 }

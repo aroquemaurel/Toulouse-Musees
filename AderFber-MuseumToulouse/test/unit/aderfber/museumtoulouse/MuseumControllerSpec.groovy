@@ -18,6 +18,7 @@ class MuseumControllerSpec extends Specification {
                 city: "TOULOUSE").save(failOnError: true)
 
         manager = new Manager(name: "Association").save(failOnError: true)
+        controller.museumService = new MuseumService()
     }
 
 
@@ -28,8 +29,8 @@ class MuseumControllerSpec extends Specification {
         params["phone"] = '05 61 77 84 25'
         params["subwayAccess"] = 'Saint-Cyprien-République, Esquirol (A)'
         params["busAccess"] = '2, 10, 12, 14, 78, 80'
-        params["address"] = address
-        params["manager"] = manager
+        params["address.id"] = 1
+        params["manager.id"] = 1
 
     }
 
