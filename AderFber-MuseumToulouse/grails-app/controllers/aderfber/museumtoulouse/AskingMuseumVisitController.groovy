@@ -12,7 +12,8 @@ class AskingMuseumVisitController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond AskingMuseumVisit.list(params), model:[askingMuseumVisitInstanceCount: AskingMuseumVisit.count()]
+        respond AskingMuseumVisit.list(params),
+                model:[askingMuseumVisitInstanceCount: AskingMuseumVisit.count()]
     }
 
     def show(AskingMuseumVisit askingMuseumVisitInstance) {
@@ -39,7 +40,12 @@ class AskingMuseumVisitController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'askingMuseumVisit.label', default: 'AskingMuseumVisit'), askingMuseumVisitInstance.id])
+                flash.message =
+                        message(
+                            code: 'default.created.message',
+                            args: [message(code: 'askingMuseumVisit.label',
+                                    default: 'AskingMuseumVisit'),
+                                   askingMuseumVisitInstance.id])
                 redirect askingMuseumVisitInstance
             }
             '*' { respond askingMuseumVisitInstance, [status: CREATED] }
@@ -66,7 +72,12 @@ class AskingMuseumVisitController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'AskingMuseumVisit.label', default: 'AskingMuseumVisit'), askingMuseumVisitInstance.id])
+                flash.message =
+                        message(
+                            code: 'default.updated.message',
+                            args: [message(code: 'AskingMuseumVisit.label',
+                                default: 'AskingMuseumVisit'),
+                               askingMuseumVisitInstance.id])
                 redirect askingMuseumVisitInstance
             }
             '*'{ respond askingMuseumVisitInstance, [status: OK] }
@@ -85,7 +96,11 @@ class AskingMuseumVisitController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'AskingMuseumVisit.label', default: 'AskingMuseumVisit'), askingMuseumVisitInstance.id])
+                flash.message = message(
+                        code: 'default.deleted.message',
+                        args: [message(code: 'AskingMuseumVisit.label',
+                                default: 'AskingMuseumVisit'),
+                               askingMuseumVisitInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +110,11 @@ class AskingMuseumVisitController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'askingMuseumVisit.label', default: 'AskingMuseumVisit'), params.id])
+                flash.message = message(
+                        code: 'default.not.found.message',
+                        args: [message(code: 'askingMuseumVisit.label',
+                                default: 'AskingMuseumVisit'),
+                               params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

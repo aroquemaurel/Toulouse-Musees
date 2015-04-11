@@ -92,7 +92,12 @@ class ManagerController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Manager.label', default: 'Manager'), managerInstance.id])
+                flash.message =
+                        message(
+                                code: 'default.deleted.message',
+                                args: [message(code: 'Manager.label',
+                                        default: 'Manager'),
+                                       managerInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -102,7 +107,11 @@ class ManagerController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'manager.label', default: 'Manager'), params.id])
+                flash.message = message(
+                        code: 'default.not.found.message',
+                        args: [message(code: 'manager.label',
+                                default: 'Manager'),
+                               params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

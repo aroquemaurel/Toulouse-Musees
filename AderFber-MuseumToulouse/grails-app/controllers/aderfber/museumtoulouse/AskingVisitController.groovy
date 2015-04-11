@@ -38,7 +38,12 @@ class AskingVisitController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'askingVisit.label', default: 'AskingVisit'), askingVisitInstance.id])
+                flash.message =
+                        message(
+                                code: 'default.created.message',
+                                args: [message(code: 'askingVisit.label',
+                                        default: 'AskingVisit'),
+                                       askingVisitInstance.id])
                 redirect askingVisitInstance
             }
             '*' { respond askingVisitInstance, [status: CREATED] }
@@ -65,7 +70,12 @@ class AskingVisitController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'AskingVisit.label', default: 'AskingVisit'), askingVisitInstance.id])
+                flash.message =
+                        message(
+                                code: 'default.updated.message',
+                                args: [message(code: 'AskingVisit.label',
+                                        default: 'AskingVisit'),
+                                       askingVisitInstance.id])
                 redirect askingVisitInstance
             }
             '*' { respond askingVisitInstance, [status: OK] }
@@ -84,7 +94,12 @@ class AskingVisitController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'AskingVisit.label', default: 'AskingVisit'), askingVisitInstance.id])
+                flash.message =
+                        message(
+                                code: 'default.deleted.message',
+                                args: [message(code: 'AskingVisit.label',
+                                        default: 'AskingVisit'),
+                                       askingVisitInstance.id])
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NO_CONTENT }
@@ -94,7 +109,11 @@ class AskingVisitController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'askingVisit.label', default: 'AskingVisit'), params.id])
+                flash.message = message(
+                        code: 'default.not.found.message',
+                        args: [message(code: 'askingVisit.label',
+                                default: 'AskingVisit'),
+                               params.id])
                 redirect action: "index", method: "GET"
             }
             '*' { render status: NOT_FOUND }

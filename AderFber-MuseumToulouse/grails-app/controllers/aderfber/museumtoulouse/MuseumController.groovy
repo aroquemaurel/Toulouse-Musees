@@ -38,8 +38,10 @@ class MuseumController {
 
         //Address address = Address.get(museumInstance.address.id)
         //Manager manager = Manager.get(museumInstance.manager.id)
-        museumService.insertOrUpdateMuseum(museumInstance,
-                museumInstance.address,museumInstance.manager)
+        museumService.insertOrUpdateMuseum(
+                museumInstance,
+                museumInstance.address,
+                museumInstance.manager)
         //museumInstance.save flush: true
 
         request.withFormat {
@@ -72,7 +74,7 @@ class MuseumController {
         Manager manager = Manager.get(museumInstance.manager.id)
         museumService.insertOrUpdateMuseum(museumInstance,address,manager)
         //museumInstance.save flush: true
-/*
+
         request.withFormat {
             form multipartForm {
                 flash.message =
@@ -83,7 +85,7 @@ class MuseumController {
             }
             '*' { respond museumInstance, [status: OK] }
         }
-   */
+
     }
 
     @Transactional
@@ -96,7 +98,7 @@ class MuseumController {
 
         museumService.deleteMuseum(museumInstance)
         //museumInstance.delete flush: true
-/*
+
         request.withFormat {
             form multipartForm {
                 flash.message =
@@ -107,11 +109,11 @@ class MuseumController {
             }
             '*' { render status: NO_CONTENT }
         }
-        */
+
     }
 
     protected void notFound() {
-        /*
+
         request.withFormat {
             form multipartForm {
                 flash.message =
@@ -122,6 +124,6 @@ class MuseumController {
             }
             '*' { render status: NOT_FOUND }
         }
-        */
+
     }
 }

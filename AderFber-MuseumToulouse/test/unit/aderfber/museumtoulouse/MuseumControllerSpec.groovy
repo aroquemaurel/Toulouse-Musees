@@ -25,7 +25,8 @@ class MuseumControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
         params["name"] = 'MUSEE DE L\'HISTOIRE DE LA MEDECINE DE TOULOUSE'
-        params["openingHours"] = 'Ouvert tous les jeudi et vendredi de 11h à 17h, et le dimande de 10h à 18h.Visites guidées sur demande.'
+        params["openingHours"] = 'Ouvert tous les jeudi et vendredi de 11h à ' +
+                '17h, et le dimande de 10h à 18h.Visites guidées sur demande.'
         params["phone"] = '05 61 77 84 25'
         params["subwayAccess"] = 'Saint-Cyprien-République, Esquirol (A)'
         params["busAccess"] = '2, 10, 12, 14, 78, 80'
