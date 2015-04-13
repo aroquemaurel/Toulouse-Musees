@@ -30,8 +30,8 @@ class MuseumControllerSpec extends Specification {
         params["phone"] = '05 61 77 84 25'
         params["subwayAccess"] = 'Saint-Cyprien-République, Esquirol (A)'
         params["busAccess"] = '2, 10, 12, 14, 78, 80'
-        params["address.id"] = 1
-        params["manager.id"] = 1
+        params["address"] = address
+        params["manager"] = manager
 
     }
 
