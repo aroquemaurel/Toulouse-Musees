@@ -6,11 +6,12 @@ import org.springframework.transaction.annotation.Transactional
 class MuseumService {
 
     /**
-     *
-     * @param museum
-     * @param address
-     * @param manager
-     * @return
+     * Insert or update a Museum <i>museum</i> with it <i>address</i> and
+     * it <i>manager</i>
+     * @param museum Museum to insert or update
+     * @param address Address of the museum
+     * @param manager Manager which manage museum
+     * @return Museum insert or update
      */
     Museum insertOrUpdateMuseum(
             Museum museum, Address address, Manager manager) {
@@ -24,8 +25,8 @@ class MuseumService {
     }
 
     /**
-     *
-     * @param museum
+     * Remove the Museum and Museum address
+     * @param museum Museum to delete
      */
     void deleteMuseum(Museum museum) {
         museum.address.delete()
