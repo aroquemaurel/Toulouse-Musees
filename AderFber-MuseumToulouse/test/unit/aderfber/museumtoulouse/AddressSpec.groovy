@@ -12,23 +12,31 @@ class AddressSpec extends Specification {
 
     void "test a valid address"(pnumber, pstreet, ppostalCode, pcity) {
         given: "An address is created"
-        Address myAddress = new Address(number: pnumber, street: pstreet, postalCode: ppostalCode, city: pcity)
+        Address myAddress = new Address(
+                                    number: pnumber,
+                                    street: pstreet,
+                                    postalCode: ppostalCode,
+                                    city: pcity)
 
         expect: "Address is valid"
         myAddress.validate()
 
         where:
-        pnumber  |   pstreet                        | ppostalCode | pcity
-        "26"       |  "382-2216 Dictum Road"        | "3779"      | "Rostock"
-        "42"       |  ""                            | "52097"     | "Lier"
-        null     |  "262-6439 Consectetuer St."     | "21410"     | "Wandsworth"
-        "42"       |  null                          | "3779"      | "Henis"
-        null     |  null                            | "1337"      | "Trowbridge"
+        pnumber  |   pstreet                      | ppostalCode | pcity
+        "26"     |  "382-2216 Dictum Road"        | "3779"      | "Rostock"
+        "42"     |  ""                            | "52097"     | "Lier"
+        null     |  "262-6439 Consectetuer St."   | "21410"     | "Wandsworth"
+        "42"     |  null                          | "3779"      | "Henis"
+        null     |  null                          | "1337"      | "Trowbridge"
     }
 
     void "test an unvalid address"(pnumber, pstreet, ppostalCode, pcity) {
         given: "An address is created"
-        Address myAddress = new Address(number: pnumber, street: pstreet, postalCode: ppostalCode, city: pcity)
+        Address myAddress = new Address(
+                                    number: pnumber,
+                                    street: pstreet,
+                                    postalCode: ppostalCode,
+                                    city: pcity)
 
         expect: "Address is valid"
         !myAddress.validate()

@@ -12,8 +12,21 @@ class AskingMuseumVisitControllerSpec extends Specification {
     AskingVisit askingVisit
 
     def setup() {
-        museum = new Museum(name: "machin", openingHours: "hours", address: new Address(number: "42", street: "yrdy", postalCode: "21522", city: "test"), manager: new Manager(firstname: "truc", lastname: "chose")).save(failOnError: true)
-        askingVisit = new AskingVisit(code: 43, beginPeriodDate: new Date(2101, 1, 1), endPeriodDate: new Date(2015, 1, 1), nbPeople: 42, status:0).save(failOnError: true)
+        museum = new Museum(
+                        name: "machin",
+                        openingHours: "hours",
+                        address: new Address(
+                                number: "2",
+                                street: "RUE VIGUERIE",
+                                postalCode: "31300",
+                                city: "TOULOUSE"),
+                        manager: new Manager(
+                                name: "Association")).save(failOnError: true)
+        askingVisit = new AskingVisit(
+                            code: 43,
+                            beginPeriodDate: new Date(2101, 1, 1),
+                            endPeriodDate: new Date(2015, 1, 1),
+                            nbPeople: 42, status:0).save(failOnError: true)
     }
 
     def populateValidParams(params) {
