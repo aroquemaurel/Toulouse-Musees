@@ -1,6 +1,6 @@
 package aderfber.museumtoulouse
 
-import grails.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Transactional
 class MuseumService {
