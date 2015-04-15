@@ -19,7 +19,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$/target/work/plugins/asset-pipeline-1.8.11">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/asset-pipeline-1.8.11/src/groovy" isTestSource="false" />
@@ -59,7 +59,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="grails-2.4.2" level="application" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="grails-2.4.2" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="grails-2.4.2 (2)" level="application" />
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (AderFber-MuseumToulouse-grailsPlugins)">
@@ -121,4 +121,3 @@
     </orderEntry>
   </component>
 </module>
-
