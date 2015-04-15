@@ -8,6 +8,7 @@ import spock.lang.Specification
 class MuseumServiceIntegrationSpec extends Specification {
     Address address
     Manager manager
+    TestSetMuseumCsvService testSetMuseumCsvService
 
     MuseumService museumService
 
@@ -22,7 +23,7 @@ class MuseumServiceIntegrationSpec extends Specification {
         manager = new Manager(name: "Association");
     }
 
-    void "test la création ou la mise à jour d'un museum"() {
+    void "test for inserting or updating a museum"() {
 
         given: "un museum"
         Museum museum =
@@ -38,31 +39,31 @@ class MuseumServiceIntegrationSpec extends Specification {
                         manager: manager
                 )
 
-        when: "on insert ou met à jour le museum"
+        when: "we insert or update museum"
         Museum resultMuseum =
                 museumService.insertOrUpdateMuseum(
                         museum, address, manager);
 
-        then: "le museum inséré est bien celui retourné"
+        then: "museum inserted is that returned"
         resultMuseum == museum
 
-        and:"l'inscription a bien un id"
+        and:"museum has an id"
         museum.id != null
 
-        and:"elle est valide"
+        and:"is a valid museum"
         museum.validate()
 
-        and:"elle est bien stockée en base"
+        and:"is museum stored in database"
         Museum.findById(museum.id) != null
 
-        and :"les propriétes sont mises à jours comme attendues"
+        and :"properties of museum are also updating"
         museum.address == address
         museum.manager == manager
     }
 
-    void "test de la suppression d'une inscription"() {
+    void "test on remove a museum"() {
 
-        given:"une inscription existante en base"
+        given:"a museum existing in database"
         Museum museum =
                 new Museum(
                         name: "MUSEE DE L'HISTOIRE DE LA MEDECINE DE TOULOUSE",
@@ -80,16 +81,75 @@ class MuseumServiceIntegrationSpec extends Specification {
                         address, manager);
 
 
-        when:"on déclenche la removation du museum"
+        when:"we throw a deletion of the museum"
         museumService.deleteMuseum(museum)
 
-        then:"Museum is supprimé in database"
-//        Museum.findById(museum.id) == null
-      //  Address.findById(address.id) == null
+        then:"Museum is removed in database"
+        //Museum.findById(museum.id) == null
+        //Address.findById(address.id) == null
 
         and:" Manager is not removed"
-
-//        Manager.findById(manager.id) != null
+        //Manager.findById(manager.id) != null
 
     }
+
+    /*
+    void "test searchengine on museums"() {
+
+        given:"addresses, managers and museums provide by test set"
+        testSetService
+        testSetService.parseCsvMuseumFile()
+
+        when:"we search museums where mueseum name contains 'EROT'  "
+        List<Museum> res = museumService.searchMuseums("EROT",null,null)
+
+        then:"we get the only museum"
+        res.size() == 1
+        //res*.id.contains(testSetService.jeanneOnAct1.id)
+        //res*.id.contains(testSetService.jacquesOnAct1.id)
+
+
+
+        when:"on cherche les inscriptions dont les activités sont gérées par le responsable dont le nom ou le prenom contient 'Val'"
+        res = museumService.searchMuseums(null,'Val',null)
+
+        then:"on récupère uniquement l'inscription jacquesOnAct3"
+        res.size() == 1
+        res*.id.contains(testSetService.jacquesOnAct3.id)
+
+        when:"on cherche les inscriptions sur lesquelles une personne dont le nom ou me prénom contient 'Jack' "
+        res = museumService.searchMuseums(null,null,'Jacq')
+
+        then:"on recupère les 2 inscriptions de Jacques"
+        res.size() == 2
+        res*.id.contains(testSetService.jacquesOnAct3.id)
+        res*.id.contains(testSetService.jacquesOnAct1.id)
+
+        and:"elle sont ordonnées suivant le titre de l'activité"
+        res*.activite*.titre == [testSetService.activite1.titre, testSetService.activite3.titre]
+
+        when:"on cherche les inscriptions sur lesquelles une personne dont le nom ou me prénom contient 'Jack'et dont les activités sont gérées par le responsable dont le nom ou le prenom contient 'Isa'  "
+        res = museumService.searchMuseums(null,'Isa','Jacq')
+
+        then:"on récupère uniquement l'inscription jacquesOnAct1"
+        res.size() == 1
+        res*.id.contains(testSetService.jacquesOnAct1.id)
+
+        when:"on cherche les inscriptions dont le titre de l'activité contient 'Isa'"
+        res = museumService.searchMuseums("Isa",null,null)
+
+        then: "on ne récupère aucune inscription"
+        res.size() == 0
+
+        when:"on positionne tous les critères à null"
+        res = museumService.searchMuseums(null, null, null)
+
+        then: "on récupère toutes les inscriptions"
+        res.size() == 3
+
+        and:"elle sont ordonnées suivant le titre de l'activité"
+        res*.activite*.titre == [testSetService.activite1.titre, testSetService.activite1.titre, testSetService.activite3.titre]
+
+    }
+*/
 }
