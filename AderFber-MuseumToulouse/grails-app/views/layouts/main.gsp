@@ -11,6 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css" file="bootstrap-select.min.css" />" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -57,5 +58,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="<g:resource dir="js" file="bootstrap.min.js" />"></script>
+    <script src="<g:resource dir="js" file="bootstrap-select.min.js" />"></script>
+
     <asset:javascript src="bootstrap.min.js"/>
+    <asset:javascript src="bootstrap-select.min.js"/>
 </body>
+
