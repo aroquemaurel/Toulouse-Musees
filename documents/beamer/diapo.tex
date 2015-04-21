@@ -1,0 +1,132 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage[overlay,absolute]{textpos}
+
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+
+\makeatletter
+\hypersetup{pdfpagemode=FullScreen}
+
+\newcommand{\firstlogo}{images/ups.jpg}
+\newcommand{\secondlogo}{images/Toulouse.png}
+\newcommand{\footsubject}{My subject} % Subject in footer
+
+\newcommand{\rgbcolortheme}{162,38,96}
+
+\mode<presentation> {
+	\usepackage{../beamer-theme/beamerthemeUNLTheme}
+}
+
+\title[] % Not required. If title is too long 
+{Toulouse Musée}
+\subtitle{Architecture Multi-Couches et Développement avec Java EE}
+
+\newcommand{\authors}{%
+Antoine de \bsc{Roquemaurel}\newline Florent \bsc{Berbie}
+}
+
+\newcommand{\FlorentSpeak}{%
+\author[
+\textbf{\color{white} F}lorent\\
+{A}ntoine
+]{\authors}
+}
+
+\newcommand{\AntoineSpeak}{%
+\author[
+{F}lorent\\
+\textbf{\color{white} A}ntoine
+]{\authors}
+}
+
+\newcommand{\NooneSpeak}{%%
+\author[
+Florent\\
+Antoine
+]{\authors}
+}
+
+
+\institute[] 
+{
+  Universit\'e Toulouse III -- Paul Sabatier \\
+  M1 Informatique -- Développement Logiciel 
+  \vspace{-10px}
+}
+\date[ ~ ~ ~ 05 / 03 / 2015] % In footer 
+{Vendredi 06 Mars 2015}
+
+
+ % Toc for each section
+\AtBeginSection[] {
+  \begin{frame}<beamer>{Ligne directrice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\NooneSpeak
+\begin{document}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	\begin{frame}
+		\tableofcontents
+	\end{frame}
+	\begin{frame}{Introduction}
+		\begin{itemize}
+			\item \ldots 
+			\item \ldots 
+			\item \ldots
+		\end{itemize}
+	\end{frame}
+	\section{First section}
+	\subsection{First subsection}
+	\begin{frame}{Slide A}
+		
+	\end{frame}
+	\subsection{Second subsection}
+
+	\begin{frame}{Slide B}
+		\begin{block}{A super block}
+			A block	
+		\end{block}
+		\begin{alertblock}{Alert, Alert !}
+			An alert block
+		\end{alertblock}
+
+		\begin{exampleblock}{Coooool}
+			An example block	
+		\end{exampleblock}
+	\end{frame}
+	\section{Second section}
+	\subsection{First subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\subsection{Second subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\section{Last section}
+	\subsection{First subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\subsection{Second subsection}
+	\begin{frame}{Slide B}
+	\end{frame}
+	\section*{Conclude}
+	\begin{frame}{Conclude}
+	\end{frame}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+\end{document}
