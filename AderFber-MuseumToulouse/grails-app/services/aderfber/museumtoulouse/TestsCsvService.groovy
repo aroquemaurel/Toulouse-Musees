@@ -26,7 +26,7 @@ class TestsCsvService {
                         subwayAccess: row[5],
                         busAccess: row[6])
 
-                museumService.insertOrUpdateMuseum(museum, manager, address)
+                museumService.insertOrUpdateMuseum(museum, address, manager)
             }
         }
     }
