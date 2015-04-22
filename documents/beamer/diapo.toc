@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.33pt}
+\beamer@endinputifotherversion {3.24pt}
 \select@language {french}
 \beamer@sectionintoc {1}{First section}{4}{0}{1}
 \beamer@subsectionintoc {1}{1}{First subsection}{5}{0}{1}
