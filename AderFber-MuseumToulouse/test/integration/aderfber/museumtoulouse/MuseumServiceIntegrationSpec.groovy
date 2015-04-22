@@ -8,7 +8,6 @@ import spock.lang.Specification
 class MuseumServiceIntegrationSpec extends Specification {
     Address address
     Manager manager
-    TestSetMuseumCsvService testSetMuseumCsvService
 
     MuseumService museumService
 
@@ -93,63 +92,47 @@ class MuseumServiceIntegrationSpec extends Specification {
 
     }
 
-    /*
     void "test searchengine on museums"() {
 
         given:"addresses, managers and museums provide by test set"
-        testSetService
-        testSetService.parseCsvMuseumFile()
+        Museum museum =
+                new Museum(
+                        name: "MUSEE DE L'HISTOIRE DE LA MEDECINE DE TOULOUSE",
+                        openingHours: "Ouvert tous les jeudi et vendredi de" +
+                                " 11h à 17h, et le dimande de 10h à 18h." +
+                                "Visites guidées sur demande.",
+                        phone: "05 61 77 84 25",
+                        subwayAccess: "Saint-Cyprien-République, Esquirol (A)",
+                        busAccess: "2, 10, 12, 14, 78, 80",
+                        address: address,
+                        manager: manager
+                )
+        Museum museumInsertOrUpdate =
+                museumService.insertOrUpdateMuseum(museum,
+                        address, manager);
 
-        when:"we search museums where mueseum name contains 'EROT'  "
-        List<Museum> res = museumService.searchMuseums("EROT",null,null)
+        when:"we search museums where mueseum name contains 'MEDECINE'  "
+        List<Museum> res = museumService.searchMuseums("MEDECINE",null,null)
 
         then:"we get the only museum"
         res.size() == 1
-        //res*.id.contains(testSetService.jeanneOnAct1.id)
-        //res*.id.contains(testSetService.jacquesOnAct1.id)
+        res*.id.contains(museum.id);
+        res.clear();
 
-
-
-        when:"on cherche les inscriptions dont les activités sont gérées par le responsable dont le nom ou le prenom contient 'Val'"
-        res = museumService.searchMuseums(null,'Val',null)
-
-        then:"on récupère uniquement l'inscription jacquesOnAct3"
+        when:"we search museums where mueseum address contains 'VIG'  "
+        res = museumService.searchMuseums(null, "VIG", null)
+        then:"we get the only museum"
         res.size() == 1
-        res*.id.contains(testSetService.jacquesOnAct3.id)
+        res*.id.contains(museum.id);
+        res.clear();
 
-        when:"on cherche les inscriptions sur lesquelles une personne dont le nom ou me prénom contient 'Jack' "
-        res = museumService.searchMuseums(null,null,'Jacq')
-
-        then:"on recupère les 2 inscriptions de Jacques"
-        res.size() == 2
-        res*.id.contains(testSetService.jacquesOnAct3.id)
-        res*.id.contains(testSetService.jacquesOnAct1.id)
-
-        and:"elle sont ordonnées suivant le titre de l'activité"
-        res*.activite*.titre == [testSetService.activite1.titre, testSetService.activite3.titre]
-
-        when:"on cherche les inscriptions sur lesquelles une personne dont le nom ou me prénom contient 'Jack'et dont les activités sont gérées par le responsable dont le nom ou le prenom contient 'Isa'  "
-        res = museumService.searchMuseums(null,'Isa','Jacq')
-
-        then:"on récupère uniquement l'inscription jacquesOnAct1"
+        when:"we search museums where mueseum postalcode contains '31300'  "
+        res = museumService.searchMuseums(null, null, "31300")
+        then:"we get the only museum"
         res.size() == 1
-        res*.id.contains(testSetService.jacquesOnAct1.id)
-
-        when:"on cherche les inscriptions dont le titre de l'activité contient 'Isa'"
-        res = museumService.searchMuseums("Isa",null,null)
-
-        then: "on ne récupère aucune inscription"
-        res.size() == 0
-
-        when:"on positionne tous les critères à null"
-        res = museumService.searchMuseums(null, null, null)
-
-        then: "on récupère toutes les inscriptions"
-        res.size() == 3
-
-        and:"elle sont ordonnées suivant le titre de l'activité"
-        res*.activite*.titre == [testSetService.activite1.titre, testSetService.activite1.titre, testSetService.activite3.titre]
+        res*.id.contains(museum.id);
+        res.clear();
 
     }
-*/
+
 }
