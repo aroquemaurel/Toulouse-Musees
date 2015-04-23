@@ -11,6 +11,14 @@ class MuseumController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def doResearch() {
+        String name = params.name
+        String postalCode = params.codePostal
+        String address = params.address
+
+        List<Museum> museums = museumService.searchMuseums(name, address, postalCode)
+        render(view: '/index', model: [museums: museums])
+    }
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Museum.list(params), model: [museumInstanceCount: Museum.count()]

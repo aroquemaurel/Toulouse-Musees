@@ -11,13 +11,13 @@
                 ainsi que de pouvoir demander la visite d'un musée.</p>
             </div>
 
-			<div id="controller-list" role="navigation">
+			<g id="controller-list" role="navigation">
                 <h2>Rechercher un musée</h2>
                 <div class="form-group">
-                    <input required="required" name="adeliNumber" id="adeliNumber" class="form-control input-lg" placeholder="Nom ou partie du nom" tabindex="1" value="" type="text">
+                    <input required="required" name="name" id="name" class="form-control input-lg" placeholder="Nom ou partie du nom" tabindex="1" value="" type="text">
                 </div>
 
-                <form method="post" action="<!-- TODO action -->">
+                <g:form name="search" class="form-inline" url="[controller: 'museum', action:'doResearch']">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input required="required" name="address" id="address" class="form-control input-lg" placeholder="Nom ou partie de nom de rue" tabindex="3" value="" type="text">
+                            <input name="address" id="address" class="form-control input-lg" placeholder="Nom ou partie de nom de rue" tabindex="3" value="" type="text">
                         </div>
                     </div>
                 </div>
@@ -44,9 +44,9 @@
                         <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Rechercher !</button>
                     </div>
                         </div>
-
-
-                </form>
+                </g:form>
+                <g:each var="museum" in="${museums}">
+                </g:each>
             </div>
 
 	</body>
