@@ -13,23 +13,22 @@
 
 			<g id="controller-list" role="navigation">
                 <h2>Rechercher un musée</h2>
-                <div class="form-group">
-                    <input required="required" name="name" id="name" class="form-control input-lg" placeholder="Nom ou partie du nom" tabindex="1" value="" type="text">
-                </div>
 
                 <g:form name="search" url="[controller: 'museum', action:'doResearch']">
+                    <div class="row">
+                        <div class="form-group">
+                            <input name="name" id="name" class="form-control input-lg" placeholder="Nom ou partie du nom" tabindex="1" value="" type="text">
+                        </div>
+                    </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <!-- TODO put good postal codes. -->
                             <select style="display: none;" tabindex="2" class="selectpicker form-control input-lg" id="postalCode" name="postalCode">
                                 <option disabled="" selected="">Code postal</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
+                            <g:each var="postalCode" in="${postalCodes}">
+                                <option value="${postalCode}">${postalCode}</option>
+                            </g:each>
                             </select>
                         </div>
                     </div>

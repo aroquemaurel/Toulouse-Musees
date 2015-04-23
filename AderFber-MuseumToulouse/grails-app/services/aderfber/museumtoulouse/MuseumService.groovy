@@ -46,18 +46,18 @@ class MuseumService {
         def criteria = Museum.createCriteria()
         List<Museum> museums = criteria.list {
             if (name) {
-                like 'name', "%${name}%"
+                ilike 'name', "%${name}%"
             }
 
             if (street) {
                 address {
-                    like 'street', "%${street}%"
+                    ilike 'street', "%${street}%"
                 }
             }
 
             if (postalCode) {
                 address {
-                    like 'postalCode', "${postalCode}%"
+                    eq 'postalCode', postalCode
                 }
             }
 
