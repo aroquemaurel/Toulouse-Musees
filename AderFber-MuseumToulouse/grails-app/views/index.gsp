@@ -17,7 +17,7 @@
                     <input required="required" name="name" id="name" class="form-control input-lg" placeholder="Nom ou partie du nom" tabindex="1" value="" type="text">
                 </div>
 
-                <g:form name="search" class="form-inline" url="[controller: 'museum', action:'doResearch']">
+                <g:form name="search" url="[controller: 'museum', action:'doResearch']">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input name="address" id="address" class="form-control input-lg" placeholder="Nom ou partie de nom de rue" tabindex="3" value="" type="text">
+                            <input name="address" id="address" class="form-control input-lg" placeholder="Ville" tabindex="3" value="" type="text">
                         </div>
                     </div>
                 </div>
@@ -43,11 +43,32 @@
                     <div class="form-group">
                         <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Rechercher !</button>
                     </div>
-                        </div>
                 </g:form>
-                <g:each var="museum" in="${museums}">
-                </g:each>
             </div>
+                <div class="row">
 
+                    <table class="table table-striped">
+                        <tr>
+                            <th class="col-md-3">Nom du musée</th>
+                            <th class="col-md-3">Horaires d'ouverture</th>
+                            <th class="col-md-2">Téléphone</th>
+                            <th class="col-md-2">Adresse</th>
+                            <th class="col-md-2">Accès bus</th>
+                            <th class="col-md-2">Accès métro</th>
+                        </tr>
+                        <g:each var="museum" in="${museums}">
+                            <tr>
+                                <td>${museum.name}</td>
+                                <td>${museum.openingHours}</td>
+                                <td>${museum.phone}</td>
+                                <td>${museum.address.street} <br/>${museum.address.postalCode} ${museum.address.city}</td>
+                                <td>${museum.busAccess}</td>
+                                <td>${museum.subwayAccess}</td>
+                            </tr>
+                        </g:each>
+                    </table>
+
+                </div>
+            </g>
 	</body>
 </html>
