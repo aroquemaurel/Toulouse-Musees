@@ -47,6 +47,7 @@
 
                 <g:if test="${museums}">
                     <div class="row">
+
                     </div>
                     <div class="row">
                         <div class="pagination">
@@ -63,7 +64,6 @@
                                 <th class="col-md-2">Gestionnaire</th>
                                 <th class="col-md-2">Favoris</th>
                             </tr>
-
                             <g:each var="museum" in="${museums}" params="${params}">
                                 <tr>
                                     <td>${museum.name}</td>
@@ -76,31 +76,21 @@
                                     <td>${museum.subwayAccess}</td>
                                     <td>${museum.manager.name}</td>
                                     <td>
-
-
-                                        <!--g:if isStar="{session == aderfber.museumtoulouse.StarService.sessionScope}"> -->
-                                        <g:form controller="star" method="post" params="[museum:museum]">
-                                            <g:actionSubmit value="Ajouter" action="addToStars" >
-                                                <button class="btn btn-primary"><i class="glyphicon glyphicon-star"></i>&nbsp;Ajouter</button>
-                                            </g:actionSubmit>
-                                        </g:form>
-
-
-
-                                        <!--/g:if> -->
-                                        <!--g:else>-->
-                                        <g:form controller="star" params="[museum:museum]">
-                                            <g:actionSubmit value="Retirer" action="removeToStars" >
-                                                <button class="btn btn-default"><i class="glyphicon glyphicon-star-empty"></i>&nbsp;Retirer</button>
-                                            </g:actionSubmit>
-                                        </g:form>
-
-
-
-
-                                        <!--/g:else> -->
-
-                                    <td>
+                                        <g:if test="${stars*.id.contains(museum.id)}">
+                                        <g:link controller="star" action="addToStars" params="[museumId:museum.id]">
+                                            <button class="btn btn-primary">
+                                                <i class="glyphicon glyphicon-star"></i>&nbsp;Ajouter
+                                            </button>
+                                        </g:link>
+                                        </g:if>
+                                        <g:else>
+                                        <g:link controller="star" action="removeToStars" params="[museumId:museum.id]">
+                                            <button class="btn btn-default">
+                                                <i class="glyphicon glyphicon-star-empty"></i>&nbsp;Retirer
+                                            </button>
+                                        </g:link>
+                                        </g:else>
+                                    </td>
                                 </tr>
                             </g:each>
                         </table>

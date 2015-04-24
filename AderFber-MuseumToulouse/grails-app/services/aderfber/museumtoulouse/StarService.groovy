@@ -4,7 +4,6 @@ import grails.transaction.Transactional
 
 @Transactional
 class StarService {
-
     static sessionScope = "session"
 
     /**
@@ -20,7 +19,7 @@ class StarService {
     def addStar(Museum m) {
         System.out.print("ID:" + m.id)
         System.out.print(stars.contains(m))
-        if (!stars.contains(m)) {
+        if (!stars*.id.contains(m.id)) {
             stars.add(m)
         }
         System.out.print("nb favoris: " + stars.size())
@@ -32,9 +31,7 @@ class StarService {
      * @return List of museums
      */
     def removeStar(Museum m) {
-        if (stars.contains(m)) {
-            stars.remove(m)
-        }
+        stars*.id.remove(m.id)
     }
 
     /**
@@ -44,6 +41,6 @@ class StarService {
      * @return boolean
      */
     boolean isStar(Museum m) {
-        return stars.contains(m)
+        return stars*.id.contains(m.id)
     }
 }

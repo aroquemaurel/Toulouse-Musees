@@ -33,9 +33,9 @@ class StarController {
      * @param m Museum
      * @return stars list
      */
-    def addToStars(Museum m) {
-        System.out.print("add $m to stars list" )
-        starService.addStar(m)
+    def addToStars() {
+        starService.addStar(Museum.findById(params['museumId'] as Long))
+        redirect(controller: "museum", action: "doResearch")
     }
 
     /**
@@ -43,9 +43,9 @@ class StarController {
      * @param m Museum
      * @return stars list
      */
-    def removeToStars(Museum m) {
-        System.out.print("remove $m to stars list" )
-        starService.removeStar(m)
+    def removeToStars() {
+        starService.addStar(Museum.findById(params['museumId'] as Long))
+        redirect(controller: "museum", action: "doResearch")
     }
 
     /**

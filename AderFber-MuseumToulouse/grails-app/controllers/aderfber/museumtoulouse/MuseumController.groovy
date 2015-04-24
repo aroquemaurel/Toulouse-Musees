@@ -7,6 +7,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class MuseumController {
     MuseumService museumService
+    StarService starService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -26,13 +27,15 @@ class MuseumController {
 
         lastElement = lastElement <= museums.size() ? lastElement : museums.size()
         render(view: '/index', model: [museums: museums.subList(offset, lastElement), museumsCount: museums.size(),
-                                       postalCodes: postalCodes, params:params])
+                                       postalCodes: postalCodes, params:params,
+                                       stars: starService.stars])
     }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-//        respond Museum.list(params), model: [museumInstanceCount: Museum.count(), addresses: Address.findAll()]
-        render(view: '/index', model: [postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+
+        render(view: '/index', model: [stars: starService.stars,
+                                       postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
     }
 
     def show(Museum museumInstance) {

@@ -18,4 +18,5 @@ class Museum {
         address nullable: false
         manager nullable: false
     }
+
 }
