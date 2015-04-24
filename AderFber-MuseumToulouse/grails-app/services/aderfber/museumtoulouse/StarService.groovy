@@ -30,8 +30,13 @@ class StarService {
      * @param m Museum to remove
      * @return List of museums
      */
-    def removeStar(Museum m) {
-        stars*.id.remove(m.id)
+    def removeStar(Museum toRemove) {
+        for(Museum m : stars ) {
+            if(m.id == toRemove.id) {
+                stars.remove(m)
+                break
+            }
+        }
     }
 
     /**

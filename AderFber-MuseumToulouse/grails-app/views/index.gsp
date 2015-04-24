@@ -12,9 +12,11 @@
             </div>
 
 			<g id="controller-list" role="navigation">
-                <h2>Rechercher un musée</h2>
+            <div class="row">
+                <div class="col-md-8 ">
+                    <h3>Rechercher un musée</h3>
 
-                <g:form name="search" url="[controller: 'museum', action:'doResearch']">
+                    <g:form name="search" url="[controller: 'museum', action:'doResearch']">
                     <div class="row">
                         <div class="form-group">
                             <input name="name" id="name" class="form-control input-lg" placeholder="Nom ou partie du nom" tabindex="1" value="" type="text">
@@ -43,13 +45,18 @@
                         <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Rechercher !</button>
                     </div>
                 </g:form>
+                </div>
             </div>
+                <div class="col-md-offset-1 col-md-3 list-group">
+                    <h3>Musées favoris</h3>
+                    <g:each var="star" in="${stars}">
+                        <a href="#" class="list-group-item">${star.name}</a>
+                    </g:each>
+                </div>
 
+            </div>
                 <g:if test="${museums}">
-                    <div class="row">
 
-                    </div>
-                    <div class="row">
                         <div class="pagination">
                         <g:paginate total="${museumsCount}" action="doResearch" params="${params}"/>
                         </div>
@@ -76,7 +83,7 @@
                                     <td>${museum.subwayAccess}</td>
                                     <td>${museum.manager.name}</td>
                                     <td>
-                                        <g:if test="${stars*.id.contains(museum.id)}">
+                                        <g:if test="${!stars*.id.contains(museum.id)}">
                                         <g:link controller="star" action="addToStars" params="[museumId:museum.id]">
                                             <button class="btn btn-primary">
                                                 <i class="glyphicon glyphicon-star"></i>&nbsp;Ajouter

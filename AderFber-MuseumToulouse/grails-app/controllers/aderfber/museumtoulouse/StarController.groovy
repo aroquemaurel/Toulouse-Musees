@@ -44,7 +44,7 @@ class StarController {
      * @return stars list
      */
     def removeToStars() {
-        starService.addStar(Museum.findById(params['museumId'] as Long))
+        starService.removeStar(Museum.findById(params['museumId'] as Long))
         redirect(controller: "museum", action: "doResearch")
     }
 
