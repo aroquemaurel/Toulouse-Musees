@@ -17,11 +17,13 @@ class StarService {
      * @param m Museum to add
      * @return List of museums
      */
-    List<Museum> addStar(Museum m) {
+    def addStar(Museum m) {
+        System.out.print("ID:" + m.id)
+        System.out.print(stars.contains(m))
         if (!stars.contains(m)) {
             stars.add(m)
         }
-        return stars
+        System.out.print("nb favoris: " + stars.size())
     }
 
     /**
@@ -29,10 +31,19 @@ class StarService {
      * @param m Museum to remove
      * @return List of museums
      */
-    List<Museum> removeStar(Museum m) {
+    def removeStar(Museum m) {
         if (stars.contains(m)) {
             stars.remove(m)
         }
-        return stars
+    }
+
+    /**
+     * Return TRUE if the museum <i>m</i> has already added to list of stars,
+     * else return FALSE
+     * @param m Museum
+     * @return boolean
+     */
+    boolean isStar(Museum m) {
+        return stars.contains(m)
     }
 }

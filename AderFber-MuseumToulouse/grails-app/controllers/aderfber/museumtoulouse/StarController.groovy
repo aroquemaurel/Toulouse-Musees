@@ -1,21 +1,41 @@
 package aderfber.museumtoulouse
 
+import grails.transaction.Transactional
+
+@Transactional
 class StarController {
 
-    static sessionScope = "favoris"
+    static sessionScope = "favori"
 
     /**
      * Star service to manage museum stars of user.
      */
     StarService starService
 
+    def action = {
+        def actionTaken = params.actionTaken
+        Museum m = params.museum
+
+
+
+        switch (actionTaken) {
+            case "addToStars" :
+                addToStars(m)
+                break
+            case "removeToStars" :
+                removeToStars(m)
+                break
+        }
+    }
+
     /**
      * Add the museum <i>m</i>  to the stars list.
      * @param m Museum
      * @return stars list
      */
-    List<Museum> addToStars(Museum m) {
-        return starService.addStar(m)
+    def addToStars(Museum m) {
+        System.out.print("add $m to stars list" )
+        starService.addStar(m)
     }
 
     /**
@@ -23,9 +43,21 @@ class StarController {
      * @param m Museum
      * @return stars list
      */
-    List<Museum> removeToStars(Museum m) {
-        return starService.addStar(m)
+    def removeToStars(Museum m) {
+        System.out.print("remove $m to stars list" )
+        starService.removeStar(m)
     }
+
+    /**
+     * Return TRUE if the museum <i>m</i> has already added to list of stars,
+     * else return FALSE
+     * @param m Museum
+     * @return boolean
+     */
+    boolean isStar(Museum m) {
+        return starService.isStar(m)
+    }
+
 
 
 }

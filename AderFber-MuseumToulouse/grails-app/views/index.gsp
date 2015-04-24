@@ -75,9 +75,32 @@
                                     <td>${museum.busAccess}</td>
                                     <td>${museum.subwayAccess}</td>
                                     <td>${museum.manager.name}</td>
-                                    <td><button class="btn btn-primary"><i class="glyphicon glyphicon-star"></i>&nbsp;Ajouter</button></td>
-                                    <td><button class="btn btn-default"><i class="glyphicon glyphicon-star-empty"></i>&nbsp;Retirer</button></td>
+                                    <td>
 
+
+                                        <!--g:if isStar="{session == aderfber.museumtoulouse.StarService.sessionScope}"> -->
+                                        <g:form controller="star" method="post" params="[museum:museum]">
+                                            <g:actionSubmit value="Ajouter" action="addToStars" >
+                                                <button class="btn btn-primary"><i class="glyphicon glyphicon-star"></i>&nbsp;Ajouter</button>
+                                            </g:actionSubmit>
+                                        </g:form>
+
+
+
+                                        <!--/g:if> -->
+                                        <!--g:else>-->
+                                        <g:form controller="star" params="[museum:museum]">
+                                            <g:actionSubmit value="Retirer" action="removeToStars" >
+                                                <button class="btn btn-default"><i class="glyphicon glyphicon-star-empty"></i>&nbsp;Retirer</button>
+                                            </g:actionSubmit>
+                                        </g:form>
+
+
+
+
+                                        <!--/g:else> -->
+
+                                    <td>
                                 </tr>
                             </g:each>
                         </table>
