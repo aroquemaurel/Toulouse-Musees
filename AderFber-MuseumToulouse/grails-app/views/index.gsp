@@ -61,6 +61,7 @@
                                 <th class="col-md-1">Accès bus</th>
                                 <th class="col-md-2">Accès métro</th>
                                 <th class="col-md-2">Gestionnaire</th>
+                                <th class="col-md-2">Favoris</th>
                             </tr>
 
                             <g:each var="museum" in="${museums}" params="${params}">
@@ -74,6 +75,9 @@
                                     <td>${museum.busAccess}</td>
                                     <td>${museum.subwayAccess}</td>
                                     <td>${museum.manager.name}</td>
+                                    <td><button class="btn btn-primary"><i class="glyphicon glyphicon-star"></i>&nbsp;Ajouter</button></td>
+                                    <td><button class="btn btn-default"><i class="glyphicon glyphicon-star-empty"></i>&nbsp;Retirer</button></td>
+
                                 </tr>
                             </g:each>
                         </table>
