@@ -11,31 +11,30 @@
                 ainsi que de pouvoir demander la visite d'un musée.</p>
             </div>
 
-			<div id="controller-list" role="navigation">
+			<g id="controller-list" role="navigation">
                 <h2>Rechercher un musée</h2>
-                <div class="form-group">
-                    <input required="required" name="adeliNumber" id="adeliNumber" class="form-control input-lg" placeholder="Nom ou partie du nom" tabindex="1" value="" type="text">
-                </div>
 
-                <form method="post" action="<!-- TODO action -->">
+                <g:form name="search" url="[controller: 'museum', action:'doResearch']">
+                    <div class="row">
+                        <div class="form-group">
+                            <input name="name" id="name" class="form-control input-lg" placeholder="Nom ou partie du nom" tabindex="1" value="" type="text">
+                        </div>
+                    </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <!-- TODO put good postal codes. -->
                             <select style="display: none;" tabindex="2" class="selectpicker form-control input-lg" id="postalCode" name="postalCode">
                                 <option disabled="" selected="">Code postal</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
+                            <g:each var="postalCode" in="${postalCodes}">
+                                <option value="${postalCode}">${postalCode}</option>
+                            </g:each>
                             </select>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input required="required" name="address" id="address" class="form-control input-lg" placeholder="Nom ou partie de nom de rue" tabindex="3" value="" type="text">
+                            <input name="address" id="address" class="form-control input-lg" placeholder="Adresse" tabindex="3" value="" type="text">
                         </div>
                     </div>
                 </div>
@@ -43,11 +42,47 @@
                     <div class="form-group">
                         <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Rechercher !</button>
                     </div>
-                        </div>
-
-
-                </form>
+                </g:form>
             </div>
 
+                <g:if test="${museums}">
+                    <div class="row">
+                    </div>
+                    <div class="row">
+                        <div class="pagination">
+                        <g:paginate total="${museumsCount}" action="doResearch" params="${params}"/>
+                        </div>
+                        <table class="table table-striped">
+                            <tr>
+                                <th class="col-md-3">Nom du musée</th>
+                                <th class="col-md-2">Horaires d'ouverture</th>
+                                <th class="col-md-2">Téléphone</th>
+                                <th class="col-md-2">Adresse</th>
+                                <th class="col-md-1">Accès bus</th>
+                                <th class="col-md-2">Accès métro</th>
+                                <th class="col-md-2">Gestionnaire</th>
+                            </tr>
+
+                            <g:each var="museum" in="${museums}" params="${params}">
+                                <tr>
+                                    <td>${museum.name}</td>
+                                    <td>${museum.openingHours}</td>
+                                    <td>${museum.phone}</td>
+                                    <td>${museum.address.street} <br/>
+                                        ${museum.address.postalCode} ${museum.address.city}
+                                    </td>
+                                    <td>${museum.busAccess}</td>
+                                    <td>${museum.subwayAccess}</td>
+                                    <td>${museum.manager.name}</td>
+                                </tr>
+                            </g:each>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                    <g:paginate total="${museumsCount}" action="doResearch" params="${params}"/>
+                    </div>
+                </g:if>
+            </g>
 	</body>
 </html>
+

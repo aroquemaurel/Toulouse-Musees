@@ -6,14 +6,33 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class MuseumController {
-
     MuseumService museumService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def doResearch(Integer max) {
+        String name = params.name
+        String postalCode = params.postalCode
+        String address = params.address
+
+        params.max = max ?: 5
+        params.offset = params.offset ?: 0
+        max = params.max
+        int offset = params.offset.toInteger();
+        int lastElement = max + offset
+
+        List<String> postalCodes = Address.list([sort: "postalCode", order: "asc"]).postalCode.unique();
+        List<Museum> museums = museumService.searchMuseums(name, address, postalCode)
+
+        lastElement = lastElement <= museums.size() ? lastElement : museums.size()
+        render(view: '/index', model: [museums: museums.subList(offset, lastElement), museumsCount: museums.size(),
+                                       postalCodes: postalCodes, params:params])
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Museum.list(params), model: [museumInstanceCount: Museum.count()]
+//        respond Museum.list(params), model: [museumInstanceCount: Museum.count(), addresses: Address.findAll()]
+        render(view: '/index', model: [postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
     }
 
     def show(Museum museumInstance) {
