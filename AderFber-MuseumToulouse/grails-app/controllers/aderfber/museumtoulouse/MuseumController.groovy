@@ -10,13 +10,23 @@ class MuseumController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def doResearch() {
+    def doResearch(Integer max) {
         String name = params.name
         String postalCode = params.postalCode
         String address = params.address
 
+        params.max = max ?: 5
+        params.offset = params.offset ?: 0
+        max = params.max
+        int offset = params.offset.toInteger();
+        int lastElement = max + offset
+
+        List<String> postalCodes = Address.list([sort: "postalCode", order: "asc"]).postalCode.unique();
         List<Museum> museums = museumService.searchMuseums(name, address, postalCode)
-        render(view: '/index', model: [museums: museums, postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+
+        lastElement = lastElement <= museums.size() ? lastElement : museums.size()
+        render(view: '/index', model: [museums: museums.subList(offset, lastElement), museumsCount: museums.size(),
+                                       postalCodes: postalCodes, params:params])
     }
 
     def index(Integer max) {

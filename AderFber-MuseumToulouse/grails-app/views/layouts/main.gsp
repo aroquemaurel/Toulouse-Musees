@@ -12,6 +12,7 @@
     <!-- Bootstrap core CSS -->
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
     <link href="<g:resource dir="css" file="bootstrap-select.min.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css" file="tlse.css" />" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

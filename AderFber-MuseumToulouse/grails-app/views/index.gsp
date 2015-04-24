@@ -44,8 +44,14 @@
                     </div>
                 </g:form>
             </div>
+
                 <g:if test="${museums}">
                     <div class="row">
+                    </div>
+                    <div class="row">
+                        <div class="pagination">
+                        <g:paginate total="${museumsCount}" action="doResearch" params="${params}"/>
+                        </div>
                         <table class="table table-striped">
                             <tr>
                                 <th class="col-md-3">Nom du musée</th>
@@ -56,7 +62,8 @@
                                 <th class="col-md-2">Accès métro</th>
                                 <th class="col-md-2">Gestionnaire</th>
                             </tr>
-                            <g:each var="museum" in="${museums}">
+
+                            <g:each var="museum" in="${museums}" params="${params}">
                                 <tr>
                                     <td>${museum.name}</td>
                                     <td>${museum.openingHours}</td>
@@ -70,6 +77,9 @@
                                 </tr>
                             </g:each>
                         </table>
+                    </div>
+                    <div class="pagination">
+                    <g:paginate total="${museumsCount}" action="doResearch" params="${params}"/>
                     </div>
                 </g:if>
             </g>
