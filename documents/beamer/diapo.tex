@@ -3,6 +3,8 @@
 \usepackage{mdframed}
 \usepackage{tikz}
 \usepackage{pdfpages}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
 \usepackage[overlay,absolute]{textpos}
 
 \usepackage[francais]{babel}
@@ -20,6 +22,8 @@
 \newcommand{\firstlogo}{images/ups.jpg}
 \newcommand{\secondlogo}{images/Toulouse.png}
 \newcommand{\footsubject}{My subject} % Subject in footer
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
 \newcommand{\rgbcolortheme}{119,30,72}
 
@@ -49,7 +53,7 @@ Antoine de \bsc{Roquemaurel}\newline Florent \bsc{Berbie}
 ]{\authors}
 }
 
-\newcommand{\NooneSpeak}{%%
+\newcommand{\NoOneSpeak}{%%
 \author[
 Florent\\
 Antoine
@@ -74,59 +78,29 @@ Antoine
   \end{frame}
 }
 
-\NooneSpeak
+\NoOneSpeak
 \begin{document}
+	\sidetoc{no}
 	\begin{frame}
 		\titlepage
 	\end{frame}
+	\input{contents/intro.tex}
 	\begin{frame}
 		\tableofcontents
 	\end{frame}
-	\begin{frame}{Introduction}
-		\begin{itemize}
-			\item \ldots 
-			\item \ldots 
-			\item \ldots
-		\end{itemize}
-	\end{frame}
-	\section{First section}
-	\subsection{First subsection}
-	\begin{frame}{Slide A}
-		
-	\end{frame}
-	\subsection{Second subsection}
-
-	\begin{frame}{Slide B}
-		\begin{block}{A super block}
-			A block	
-		\end{block}
-		\begin{alertblock}{Alert, Alert !}
-			An alert block
-		\end{alertblock}
-
-		\begin{exampleblock}{Coooool}
-			An example block	
-		\end{exampleblock}
-	\end{frame}
-	\section{Second section}
-	\subsection{First subsection}
-	\begin{frame}{Slide B}
-	\end{frame}
-	\subsection{Second subsection}
-	\begin{frame}{Slide B}
-	\end{frame}
-	\section{Last section}
-	\subsection{First subsection}
-	\begin{frame}{Slide B}
-	\end{frame}
-	\subsection{Second subsection}
-	\begin{frame}{Slide B}
-	\end{frame}
-	\section*{Conclude}
-	\begin{frame}{Conclude}
-	\end{frame}
-
-	\begin{frame}
-		\titlepage
+	\sidetoc{yes}
+	\section{Organisation du travail} % TODO
+	\input{contents/organization/github.tex}
+	\input{contents/organization/pair-programming.tex}
+	\section{Résultats} % TODO	
+	\section{}
+	\input{contents/conclude.tex}
+	\sidetoc{no}
+	\NoOneSpeak
+	\begin{frame}{Avez-vous des questions ?}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=5cm]{questions.png}
+		\end{figure}
 	\end{frame}
 \end{document}

@@ -1,11 +1,6 @@
-\beamer@endinputifotherversion {3.24pt}
+\beamer@endinputifotherversion {3.33pt}
 \select@language {french}
-\beamer@sectionintoc {1}{First section}{4}{0}{1}
-\beamer@subsectionintoc {1}{1}{First subsection}{5}{0}{1}
-\beamer@subsectionintoc {1}{2}{Second subsection}{6}{0}{1}
-\beamer@sectionintoc {2}{Second section}{7}{0}{2}
-\beamer@subsectionintoc {2}{1}{First subsection}{8}{0}{2}
-\beamer@subsectionintoc {2}{2}{Second subsection}{9}{0}{2}
-\beamer@sectionintoc {3}{Last section}{10}{0}{3}
-\beamer@subsectionintoc {3}{1}{First subsection}{11}{0}{3}
-\beamer@subsectionintoc {3}{2}{Second subsection}{12}{0}{3}
+\beamer@sectionintoc {1}{Organisation du travail}{4}{0}{1}
+\beamer@subsectionintoc {1}{1}{Github et travail collaboratif}{5}{0}{1}
+\beamer@subsectionintoc {1}{2}{Le << Trinome-programming >>}{8}{0}{1}
+\beamer@sectionintoc {2}{R\IeC {\'e}sultats}{11}{0}{2}
