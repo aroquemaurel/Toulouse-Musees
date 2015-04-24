@@ -1,6 +1,0 @@
-\beamer@endinputifotherversion {3.33pt}
-\select@language {french}
-\beamer@sectionintoc {1}{Organisation du travail}{4}{0}{1}
-\beamer@subsectionintoc {1}{1}{Github et travail collaboratif}{5}{0}{1}
-\beamer@subsectionintoc {1}{2}{Le << Trinome-programming >>}{8}{0}{1}
-\beamer@sectionintoc {2}{R\IeC {\'e}sultats}{11}{0}{2}
