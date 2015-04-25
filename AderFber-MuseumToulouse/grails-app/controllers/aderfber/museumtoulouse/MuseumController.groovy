@@ -64,9 +64,9 @@ class MuseumController {
     }
 
     /**
-     *
-     * @param max
-     * @return
+     * Return new view to sort by postal code museums in the list of stars
+     * @param max Max elements
+     * @return view
      */
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -76,16 +76,16 @@ class MuseumController {
     }
 
     /**
-     *
-     * @param museumInstance
-     * @return
+     * Show an Instance of Museum <i>museumInstance</i>
+     * @param museumInstance Instance of Museum
+     * @return Instance of Museum
      */
     def show(Museum museumInstance) {
         respond museumInstance
     }
 
     /**
-     *
+     * Create a new Museum and return it
      * @return
      */
     def create() {
@@ -93,9 +93,9 @@ class MuseumController {
     }
 
     /**
-     *
-     * @param museumInstance
-     * @return
+     * Save in database the Museum <i>museumInstance</i>
+     * @param museumInstance Instance of Museum
+     * @return Instance of Museum
      */
     @Transactional
     def save(Museum museumInstance) {
@@ -129,18 +129,18 @@ class MuseumController {
     }
 
     /**
-     *
+     * Change the current Museum by the new <i>museumInstance</i>
      * @param museumInstance
-     * @return
+     * @return Instance of Museum
      */
     def edit(Museum museumInstance) {
         respond museumInstance
     }
 
     /**
-     *
-     * @param museumInstance
-     * @return
+     * Update Instance of Museum <i>museumInstance</i>
+     * @param museumInstance Instance of Museum
+     * @return Museum Instance
      */
     @Transactional
     def update(Museum museumInstance) {
@@ -172,9 +172,9 @@ class MuseumController {
     }
 
     /**
-     *
-     * @param museumInstance
-     * @return
+     * Remove the museum <i>museumInstance</i>
+     * @param museumInstance Instance of Museum
+     * @return Instance of Museum
      */
     @Transactional
     def delete(Museum museumInstance) {
