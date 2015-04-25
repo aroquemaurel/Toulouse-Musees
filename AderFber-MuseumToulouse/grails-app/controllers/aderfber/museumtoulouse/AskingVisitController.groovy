@@ -1,5 +1,6 @@
 package aderfber.museumtoulouse
 
+import java.text.ParseException
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -12,18 +13,34 @@ class AskingVisitController {
 
     def askingVisit() {
         Museum museum = Museum.findById(params.museumId as Long)
+
         if(params.beginDate && params.endDate && params.numberOfPeople) {
-            Date begin = new Date().parse('dd/MM/yyyy', params.beginDate);
-            Date end = new Date().parse('dd/MM/yyyy', params.endDate);
-            Integer numberOfPeople = params.numberOfPeople as Integer;
-            AskingVisit a = new AskingVisit(beginPeriodDate: begin, endPeriodDate: end, nbPeople: numberOfPeople)
-            a.code = AskingVisit.findAll().size()+1
+            boolean isValide = true
+            Date begin = new Date()
+            Date end = new Date()
+            AskingVisit a
+            def errors = []
+            errors << "UNVALID_ASKING_VISIT";
+            try {
+                begin.parse('dd/MM/yyyy', params.beginDate);
+                end.parse('dd/MM/yyyy', params.endDate);
+                Integer numberOfPeople = params.numberOfPeople as Integer;
+                a = new AskingVisit(beginPeriodDate: begin, endPeriodDate: end, nbPeople: numberOfPeople)
+                a.code = AskingVisit.findAll().size()+1
+            } catch(RuntimeException) {
+                isValide = false
+                a = new AskingVisit()
+            }
 
-            visitService.insertOrUpdateAskingMuseumVisit(a, museum, new Date())
-            render(view: '/index', model: [stars      : starService.stars, museum: museum,
-                                          postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
-
-        } else {
+            if(a.validate() && isValide) { // Forms is valide
+                visitService.insertOrUpdateAskingMuseumVisit(a, museum, new Date())
+                render(view: '/index', model: [successes: [a], stars      : starService.stars, museum: museum,
+                                               postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+            } else { // Unvalide forms
+                render(view: 'index', model: [errors: errors, params: params, stars      : starService.stars, museum: Museum.findById(params.museumId as Long),
+                                              postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+            }
+        } else { // Empty forms
             render(view: 'index', model: [stars      : starService.stars, museum: Museum.findById(params.museumId as Long),
                                           postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
         }

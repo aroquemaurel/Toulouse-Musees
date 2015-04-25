@@ -13,8 +13,17 @@
 
 <g id="controller-list" role="navigation">
 	<div class="row">
+		<g:if test="${errors}">
+		<div class="alert alert-danger">
+			<g:each in="${errors}" var="${error}">
+				<g:if test="${error} == 'UNVALID_ASKING_VISIT'">
+					<b>Erreur</b> Une erreur a eu lieu pendant l'ajout de la demande de visite : votre formulaire est invalide.
+				</g:if>
+			</g:each>
+		</div>
+		</g:if>
 		<div class="col-md-7 ">
-			<g:render template="askingVisitForm" model="[ museum:museum  ]" />
+			<g:render template="askingVisitForm" model="[ museum:museum, params:params  ]" />
 		</div>
 		</div>
 		<div class="col-md-offset-1 col-md-4">

@@ -5,11 +5,13 @@
         &nbsp;${museum.name}
     </h3>
 
+    <g:if test="${isStared}">
     <g:link controller="askingVisit" action="askingVisit" params="[museumId:museum.id]">
         <button class="btn btn-primary">
-            <i class="glyphicon glyphicon-road"></i>&nbsp;Demander à visiter ce musée
+            <i class="glyphicon glyphicon-plus"></i>&nbsp;Demander à visiter ce musée
         </button>
     </g:link>
+    </g:if>
     <h4>Contact</h4>
     <ul style="list-style-type: none">
     <li><b><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;Téléphone</b> ${museum.phone}</li>

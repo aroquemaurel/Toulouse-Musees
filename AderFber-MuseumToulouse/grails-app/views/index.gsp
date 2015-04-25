@@ -1,3 +1,4 @@
+<%@ page import="aderfber.museumtoulouse.AskingVisit" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,17 @@
 
 <g id="controller-list" role="navigation">
     <div class="row">
+        <g:if test="${successes}">
+            <div class="alert alert-success">
+                <g:each in="${successes}" var="${success}">
+                    <g:if test="${success instanceof AskingVisit}">
+                        <b>Succès</b> Votre demande de visite à bien été prise en compte votre demande sera traitée prochainement.<br/>
+                        Voici le code de votre demande : ${(success as AskingVisit).code}
+                    </g:if>
+                </g:each>
+            </div>
+        </g:if>
+
         <div class="col-md-7 ">
             <g:render template="/museum/searchForm" model="[ postalCodes: postalCodes]" />
         </div>

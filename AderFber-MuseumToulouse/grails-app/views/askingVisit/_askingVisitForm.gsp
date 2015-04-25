@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
                 <div required="required" class="input-group date input-group-lg" id="beginDate">
-                    <input data-date-format="DD/MM/YYYY" tabindex="1" id="beginDate" name="beginDate" placeholder="Date de début" class="form-control input-lg" value="" type="text">
+                    <input data-date-format="DD/MM/YYYY" tabindex="1" id="beginDate" name="beginDate" placeholder="Date de début" class="form-control input-lg" value="${params?.beginDate?.last()}" type="text">
                     <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                     </span>
                 </div>
@@ -17,7 +17,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
                 <div required="required" class="input-group date input-group-lg" id="endDate">
-                    <input data-date-format="DD/MM/YYYY" tabindex="2" id="endDate" name="endDate" placeholder="Date de fin" class="form-control input-lg" value="" type="text">
+                    <input data-date-format="DD/MM/YYYY" tabindex="2" id="endDate" name="endDate" placeholder="Date de fin" class="form-control input-lg" value="${params?.endDate?.last()}" type="text">
                     <span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span>
                     </span>
                 </div>
@@ -30,12 +30,12 @@
                    name="numberOfPeople"
                    id="numberOfPeople"
                    class="form-control input-lg"
-                   placeholder="Nombre de personnes" tabindex="2" value="" type="number" max="6" min="1">
+                   placeholder="Nombre de personnes" tabindex="2" value="${params?.numberOfPeople?.last()?.toInteger()}" type="number" max="6" min="1">
         </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6">
     <div class="form-group">
-        <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Rechercher</button>
+        <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Demander une visite</button>
     </div>
 </g:form>
 
