@@ -6,10 +6,26 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class MuseumController {
+    /**
+     * Museum service.
+     */
     MuseumService museumService
 
+    /**
+     * Stars service.
+     */
+    StarService starService
+
+    /**
+     * Methods to trnasfert data.
+     */
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    /**
+     * Search museums according filters with <i>max</i> elements per page.
+     * @param max Elements max per page
+     * @return new view.
+     */
     def doResearch(Integer max) {
         String name = params.name
         String postalCode = params.postalCode
@@ -26,23 +42,61 @@ class MuseumController {
 
         lastElement = lastElement <= museums.size() ? lastElement : museums.size()
         render(view: '/index', model: [museums: museums.subList(offset, lastElement), museumsCount: museums.size(),
-                                       postalCodes: postalCodes, params:params])
+                                       postalCodes: postalCodes, params:params,
+                                       stars: starService.stars])
     }
 
+    /**
+     * Search a Museum by Id.
+     * @return new veiw of the museum
+     */
+    def doRsearchById() {
+        Museum m = Museum.findById(params['museumId'] as Long)
+        museumService.searchMuseums(
+                m.name.toString(),
+                m.address.street,
+                m.address.postalCode)
+        render(view: '/index', model: [museums: [m], museumsCount: 1,
+                                       postalCodes: m.address.postalCode,
+                                       params:params,
+                                       stars: starService.stars])
+
+    }
+
+    /**
+     * Return new view to sort by postal code museums in the list of stars
+     * @param max Max elements
+     * @return view
+     */
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-//        respond Museum.list(params), model: [museumInstanceCount: Museum.count(), addresses: Address.findAll()]
-        render(view: '/index', model: [postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+
+        render(view: '/index', model: [stars: starService.stars,
+                                       postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
     }
 
+    /**
+     * Show an Instance of Museum <i>museumInstance</i>
+     * @param museumInstance Instance of Museum
+     * @return Instance of Museum
+     */
     def show(Museum museumInstance) {
         respond museumInstance
     }
 
+    /**
+     * Create a new Museum and return it
+     * @return
+     */
     def create() {
         respond new Museum(params)
     }
 
+    /**
+     * Save in database the Museum <i>museumInstance</i>
+     * @param museumInstance Instance of Museum
+     * @return Instance of Museum
+     */
     @Transactional
     def save(Museum museumInstance) {
         if (museumInstance == null) {
@@ -74,10 +128,20 @@ class MuseumController {
         }
     }
 
+    /**
+     * Change the current Museum by the new <i>museumInstance</i>
+     * @param museumInstance
+     * @return Instance of Museum
+     */
     def edit(Museum museumInstance) {
         respond museumInstance
     }
 
+    /**
+     * Update Instance of Museum <i>museumInstance</i>
+     * @param museumInstance Instance of Museum
+     * @return Museum Instance
+     */
     @Transactional
     def update(Museum museumInstance) {
         if (museumInstance == null) {
@@ -107,6 +171,11 @@ class MuseumController {
 
     }
 
+    /**
+     * Remove the museum <i>museumInstance</i>
+     * @param museumInstance Instance of Museum
+     * @return Instance of Museum
+     */
     @Transactional
     def delete(Museum museumInstance) {
 
@@ -131,6 +200,9 @@ class MuseumController {
 
     }
 
+    /**
+     *
+     */
     protected void notFound() {
 
         request.withFormat {
