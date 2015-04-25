@@ -18,4 +18,9 @@ class AskingVisit {
         status inList: [0,1,2]
     }
 
+    public String statusToString() {
+        def list = ["En cours de traitement", "Accepté", "Refusé"];
+        return list[status]
+    }
+
 }
