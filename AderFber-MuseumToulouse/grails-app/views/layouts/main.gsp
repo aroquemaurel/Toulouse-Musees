@@ -11,8 +11,11 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
     <link href="<g:resource dir="css" file="bootstrap-select.min.css" />" rel="stylesheet">
     <link href="<g:resource dir="css" file="bootstrap-datetimepicker.min.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css" file="bootstrap-theme.css" />" rel="stylesheet">
     <link href="<g:resource dir="css" file="tlse.css" />" rel="stylesheet">
 
 

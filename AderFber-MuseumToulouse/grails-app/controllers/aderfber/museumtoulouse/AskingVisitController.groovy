@@ -8,10 +8,25 @@ import grails.transaction.Transactional
 class AskingVisitController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
     StarService starService
+    VisitService visitService
 
     def askingVisit() {
-        render(view: 'index', model: [stars: starService.stars, museum: Museum.findById(params.museumId as Long),
-                                     postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+        Museum museum = Museum.findById(params.museumId as Long)
+        if(params.beginDate && params.endDate && params.numberOfPeople) {
+            Date begin = new Date().parse('dd/MM/yyyy', params.beginDate);
+            Date end = new Date().parse('dd/MM/yyyy', params.endDate);
+            Integer numberOfPeople = params.numberOfPeople as Integer;
+            AskingVisit a = new AskingVisit(beginPeriodDate: begin, endPeriodDate: end, nbPeople: numberOfPeople)
+            a.code = AskingVisit.findAll().size()+1
+
+            visitService.insertOrUpdateAskingMuseumVisit(a, museum, new Date())
+            render(view: '/index', model: [stars      : starService.stars, museum: museum,
+                                          postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+
+        } else {
+            render(view: 'index', model: [stars      : starService.stars, museum: Museum.findById(params.museumId as Long),
+                                          postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+        }
     }
 
     def index(Integer max) {
