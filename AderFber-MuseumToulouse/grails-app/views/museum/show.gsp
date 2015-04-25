@@ -1,98 +1,60 @@
-
-<%@ page import="aderfber.museumtoulouse.Museum" %>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'museum.label', default: 'Museum')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#show-museum" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-museum" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list museum">
-			
-				<g:if test="${museumInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="museum.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${museumInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${museumInstance?.openingHours}">
-				<li class="fieldcontain">
-					<span id="openingHours-label" class="property-label"><g:message code="museum.openingHours.label" default="Opening Hours" /></span>
-					
-						<span class="property-value" aria-labelledby="openingHours-label"><g:fieldValue bean="${museumInstance}" field="openingHours"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${museumInstance?.phone}">
-				<li class="fieldcontain">
-					<span id="phone-label" class="property-label"><g:message code="museum.phone.label" default="Phone" /></span>
-					
-						<span class="property-value" aria-labelledby="phone-label"><g:fieldValue bean="${museumInstance}" field="phone"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${museumInstance?.subwayAccess}">
-				<li class="fieldcontain">
-					<span id="subwayAccess-label" class="property-label"><g:message code="museum.subwayAccess.label" default="Subway Access" /></span>
-					
-						<span class="property-value" aria-labelledby="subwayAccess-label"><g:fieldValue bean="${museumInstance}" field="subwayAccess"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${museumInstance?.busAccess}">
-				<li class="fieldcontain">
-					<span id="busAccess-label" class="property-label"><g:message code="museum.busAccess.label" default="Bus Access" /></span>
-					
-						<span class="property-value" aria-labelledby="busAccess-label"><g:fieldValue bean="${museumInstance}" field="busAccess"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${museumInstance?.address}">
-				<li class="fieldcontain">
-					<span id="address-label" class="property-label"><g:message code="museum.address.label" default="Address" /></span>
-					
-						<span class="property-value" aria-labelledby="address-label"><g:link controller="address" action="show" id="${museumInstance?.address?.id}">${museumInstance?.address?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${museumInstance?.manager}">
-				<li class="fieldcontain">
-					<span id="manager-label" class="property-label"><g:message code="museum.manager.label" default="Manager" /></span>
-					
-						<span class="property-value" aria-labelledby="manager-label"><g:link controller="manager" action="show" id="${museumInstance?.manager?.id}">${museumInstance?.manager?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:museumInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${museumInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
+<head>
+	<meta name="layout" content="main"/>
+	<title>Toulouse-Musees</title>
+</head>
+<body>
+<div class="jumbotron">
+	<h2>Bienvenue sur Toulouse-Musees</h2>
+	<p style="font-size: 12pt">Ce site à pour but de faciliter  musées dans Toulouse,
+	de gérer une liste de musées favoris, ainsi que de pouvoir demander la visite d'un
+	musée.
+	</p>
+</div>
+
+<g id="controller-list" role="navigation">
+	<div class="row">
+		<div class="col-md-7 ">
+			<h3>Rechercher un musée</h3>
+
+			<g:form name="search" url="[controller: 'museum', action:'doResearch']">
+				<div class="row">
+					<div class="form-group">
+						<input name="name" id="name" class="form-control input-lg" placeholder="Nom ou partie du nom" tabindex="1" value="" type="text">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="form-group">
+							<select style="display: none;" tabindex="2" class="selectpicker form-control input-lg" id="postalCode" name="postalCode">
+								<option disabled="" selected="">Code postal</option>
+								<g:each var="postalCode" in="${postalCodes}">
+									<option value="${postalCode}">${postalCode}</option>
+								</g:each>
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-6">
+						<div class="form-group">
+							<input name="address" id="address" class="form-control input-lg" placeholder="Adresse" tabindex="3" value="" type="text">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="form-group">
+                    <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Rechercher</button>
+                </div>
 			</g:form>
 		</div>
-	</body>
+		</div>
+		<div class="col-md-offset-1 col-md-4">
+			<g:render template="/stars/list" model="[ stars : stars ]" />
+		</div>
+	</div>
+	<g:render template="/museum/show" model="[ museum : museum, isStared: stars*.id.contains(museum.id)]" />
+
+</g>
+</body>
 </html>
+

@@ -41,6 +41,7 @@ class MuseumController {
         List<Museum> museums = museumService.searchMuseums(name, address, postalCode)
 
         lastElement = lastElement <= museums.size() ? lastElement : museums.size()
+
         render(view: '/index', model: [museums: museums.subList(offset, lastElement), museumsCount: museums.size(),
                                        postalCodes: postalCodes, params:params,
                                        stars: starService.stars])
@@ -80,8 +81,10 @@ class MuseumController {
      * @param museumInstance Instance of Museum
      * @return Instance of Museum
      */
-    def show(Museum museumInstance) {
-        respond museumInstance
+    def show() {
+        render(view: 'show', model: [stars: starService.stars, museum: Museum.findById(params.museumId as Long),
+                                       postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+
     }
 
     /**
