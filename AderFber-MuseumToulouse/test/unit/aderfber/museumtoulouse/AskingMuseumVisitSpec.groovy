@@ -27,7 +27,7 @@ class AskingMuseumVisitSpec extends Specification {
         AskingMuseumVisit askingMuseumVisit = new AskingMuseumVisit(
                 askingDate: pAskingDate,
                 museum : pMuseum,
-                askingVistit: pAskingVisit)
+                askingVisit: pAskingVisit)
 
         expect: "Asking museum visit is invalid"
         !askingMuseumVisit.validate()
