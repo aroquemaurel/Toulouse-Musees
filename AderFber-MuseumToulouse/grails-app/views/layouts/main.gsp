@@ -11,8 +11,13 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<g:resource dir="css" file="bootstrap.min.css" />" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
     <link href="<g:resource dir="css" file="bootstrap-select.min.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css" file="bootstrap-datetimepicker.min.css" />" rel="stylesheet">
+    <link href="<g:resource dir="css" file="bootstrap-theme.css" />" rel="stylesheet">
     <link href="<g:resource dir="css" file="tlse.css" />" rel="stylesheet">
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -58,11 +63,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="<g:resource dir="js" file="jquery.min.js" />"></script>
+    <script src="<g:resource dir="js" file="moment.js" />"></script>
     <script src="<g:resource dir="js" file="bootstrap.min.js" />"></script>
     <script src="<g:resource dir="js" file="bootstrap-select.min.js" />"></script>
-
-    <asset:javascript src="bootstrap.min.js"/>
-    <asset:javascript src="bootstrap-select.min.js"/>
+    <script src="<g:resource dir="js" file="bootstrap-datetimepicker.js" />"></script>
 </body>
 
