@@ -44,11 +44,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Toulouse-Musées</a>
+            <span class="navbar-brand"><g:link mapping="/">Accueil</g:link></span>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><g:link mapping="index">Accueil</g:link></li>
+                <li><g:link mapping="/">Accueil</g:link></li>
+                <li><g:link controller="AskingVisit" action="formList">Les demandes de visites</g:link></li>
                 <li><g:link mapping="about">À-propos</g:link></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>

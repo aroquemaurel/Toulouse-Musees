@@ -13,6 +13,20 @@ class AskingVisitController {
     boolean isCollectionOrArray(object) {
         [Collection, Object[]].any { it.isAssignableFrom(object.getClass()) }
     }
+    def formList() {
+        render(view: 'list', model: [])
+    }
+
+    def askingList() {
+            params.code = isCollectionOrArray(params.code) ? params.code.last() : params.code as Integer
+            def errors = []
+            AskingVisit a = AskingVisit.findByCode(params.code as Integer);
+            if(a == null) {
+                errors << "ASKING_CODE";
+            }
+            render(view: 'list', model: [errors: errors,
+                                         askingVisit: AskingMuseumVisit.findById(a?.id)])
+    }
 
     def askingVisit() {
         Museum museum = Museum.findById(params.museumId as Long)
@@ -35,6 +49,7 @@ class AskingVisitController {
                 isValide = false
                 a = new AskingVisit()
             }
+
             if(a.validate() && isValide) { // Forms is valide
                 visitService.insertOrUpdateAskingMuseumVisit(a, museum, new Date())
                 render(view: '/index', model: [successes: [a], stars      : starService.stars, museum: museum,
