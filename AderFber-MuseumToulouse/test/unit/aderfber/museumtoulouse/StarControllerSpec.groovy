@@ -44,7 +44,10 @@ class StarControllerSpec extends Specification {
 
     def "Test if a museum is added to the list of stars"() {
         when: "add to stars of a museum"
-        controller.addToStars()
+        if (controller?.session?.id) {
+            controller.addToStars()
+        }
+
 
         then: "A museum is add to the list of stars"
         controller.starService.stars.size() == 1
