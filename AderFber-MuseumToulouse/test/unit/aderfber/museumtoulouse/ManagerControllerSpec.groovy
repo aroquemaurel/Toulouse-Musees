@@ -59,6 +59,17 @@ class ManagerControllerSpec extends Specification {
             Manager.count() == 1
     }
 
+    void "Test the save if Manager is null"() {
+        when:"The save action is executed with an invalid instance"
+        request.contentType = FORM_CONTENT_TYPE
+        request.method = 'POST'
+        Manager manager
+        controller.save(manager)
+
+        then:"The create view is rendered again with the correct model"
+        model.managerInstance == null
+    }
+
     void "Test that the show action returns the correct model"() {
         when:"The show action is executed with a null domain"
             controller.show(null)
@@ -139,7 +150,7 @@ class ManagerControllerSpec extends Specification {
             def manager = new Manager(params).save(flush: true)
 
         then:"It exists"
-            Manager.count() == 1
+            Manager.count() == 0
 
         when:"The domain instance is passed to the delete action"
             controller.delete(manager)

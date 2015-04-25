@@ -20,7 +20,11 @@ class Museum {
     }
 
     public String getName() {
+        if (name == null) {
+            return ""
+        }
         return name.toLowerCase().capitalize()
+
     }
 
 }
