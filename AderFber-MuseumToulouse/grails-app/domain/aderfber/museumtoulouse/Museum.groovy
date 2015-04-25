@@ -19,4 +19,8 @@ class Museum {
         manager nullable: false
     }
 
+    public String getName() {
+        return name.toLowerCase().capitalize()
+    }
+
 }

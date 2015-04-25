@@ -15,7 +15,7 @@
 
 			<g id="controller-list" role="navigation">
             <div class="row">
-                <div class="col-md-8 ">
+                <div class="col-md-7 ">
                     <h3>Rechercher un musée</h3>
 
                     <g:form name="search" url="[controller: 'museum', action:'doResearch']">
@@ -49,15 +49,17 @@
                 </g:form>
                 </div>
             </div>
-                <div class="col-md-offset-1 col-md-3 list-group">
-                    <h3>Musées favoris</h3>
-
+                <div class="col-md-offset-1 col-md-4">
+                    <g:if test="${stars}">
+                    <h3>Musées favoris  <span class="badge">${stars.size()}</span></h3>
+                    <ul class="list-group">
                     <g:each var="star" in="${stars}">
-                        <g:link  controller="museum" action="doRsearchById" params="[museumId: star.id]">
+                        <li class="list-group-item"><g:link  controller="museum" action="doRsearchById" params="[museumId: star.id]">
                             <p class="glyphicon glyphicon-star"> &nbsp;${star.name}</p>
-                        </g:link>
+                        </g:link></li>
                     </g:each>
-
+                    </ul>
+                    </g:if>
                 </div>
 
             </div>
