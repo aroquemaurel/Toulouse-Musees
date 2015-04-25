@@ -6,8 +6,13 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class AskingVisitController {
-
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    StarService starService
+
+    def askingVisit() {
+        render(view: 'index', model: [stars: starService.stars, museum: Museum.findById(params.museumId as Long),
+                                     postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

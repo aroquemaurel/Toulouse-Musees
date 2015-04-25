@@ -4,9 +4,15 @@
         <g:else><i class="glyphicon glyphicon-star-empty"></i></g:else>
         &nbsp;${museum.name}
     </h3>
+
+    <g:link controller="askingVisit" action="askingVisit" params="[museumId:museum.id]">
+        <button class="btn btn-primary">
+            <i class="glyphicon glyphicon-road"></i>&nbsp;Demander à visiter ce musée
+        </button>
+    </g:link>
     <h4>Contact</h4>
     <ul style="list-style-type: none">
-    <li><b>Téléphone</b> ${museum.phone}</li>
+    <li><b><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;Téléphone</b> ${museum.phone}</li>
     <li><b>Gestionnaire</b> ${museum.manager.name}</li>
     </ul>
 
