@@ -13,7 +13,7 @@ class AskingVisit {
         endPeriodDate nullable: false, validator: { val, obj ->
             return obj.endPeriodDate >= val
         }
-        nbPeople min: 0
+        nbPeople min: 0, max: 6
         status inList: [0,1,2]
     }
 

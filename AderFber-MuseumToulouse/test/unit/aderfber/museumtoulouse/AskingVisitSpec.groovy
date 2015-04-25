@@ -24,8 +24,8 @@ class AskingVisitSpec extends Specification {
 
         where:
         pCode   | pBeginDate          | pEndDate            | pNbPeople | pStatus
-        42      | new Date(1989,7,18) | new Date(1989,7,19) | 101       | 0
-        55      | new Date(2001,3,16) | new Date(2009,2,6)  | 12        | 1
+        42      | new Date(1989,7,18) | new Date(1989,7,19) | 5         | 0
+        55      | new Date(2001,3,16) | new Date(2009,2,6)  | 4         | 1
         22      | new Date(2003,4,15) | new Date(2003,5,11) | 0         | 2
         2       | new Date(2003,4,15) | new Date(2003,4,15) | 0         | 2
 
@@ -45,12 +45,14 @@ class AskingVisitSpec extends Specification {
 
         where:
         pCode   | pBeginDate            | pEndDate              | pNbPeople | pStatus
-        null    | new Date(1989,7,18)   | new Date(1989,7,19)   | 101       | 0
-        55      | null                  | new Date(2009,2,6)    | 12        | 1
+        null    | new Date(1989,7,18)   | new Date(1989,7,19)   | 1         | 0
+        55      | null                  | new Date(2009,2,6)    | 5         | 1
         22      | new Date(2003,4,15)   | null                  | 0         | 2
         22      | new Date(1989,7,18)   | new Date(1989,7,19)   | -2        | 2
-        22      | new Date(1989,7,18)   | new Date(1989,7,19)   | 12        | 3
-        22      | new Date(1989,7,18)   | new Date(1989,7,19)   | 12        | -1
-        22      | new Date(1989,7,20)   | new Date(1989,7,19)   | 12        | -1
+        22      | new Date(1989,7,18)   | new Date(1989,7,19)   | 7         | 2
+        22      | new Date(1989,7,18)   | new Date(1989,7,19)   | 5         | 3
+        22      | new Date(1989,7,18)   | new Date(1989,7,19)   | 5         | -1
+        22      | new Date(1989,7,20)   | new Date(1989,7,19)   | 5         | -1
+
     }
 }
