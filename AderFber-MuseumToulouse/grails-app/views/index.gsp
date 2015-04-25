@@ -6,9 +6,11 @@
 	</head>
 	<body>
             <div class="jumbotron">
-                <h2>Bienvenu sur Toulouse-Musees</h2>
-                <p style="font-size: 12pt">Ce site à pour but de vous permettre de facilement rechercher des musées dans Toulouse, de gérée une liste de musées favoris,
-                ainsi que de pouvoir demander la visite d'un musée.</p>
+                <h2>Bienvenue sur Toulouse-Musees</h2>
+                <p style="font-size: 12pt">Ce site à pour but de faciliter  musées dans Toulouse,
+                de gérer une liste de musées favoris, ainsi que de pouvoir demander la visite d'un
+                musée.
+                </p>
             </div>
 
 			<g id="controller-list" role="navigation">
@@ -42,16 +44,20 @@
                 </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                     <div class="form-group">
-                        <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Rechercher !</button>
+                        <button class="btn btn-primary"><i class="glyphicon glyphicon-search"></i>&nbsp;Rechercher</button>
                     </div>
                 </g:form>
                 </div>
             </div>
                 <div class="col-md-offset-1 col-md-3 list-group">
                     <h3>Musées favoris</h3>
+
                     <g:each var="star" in="${stars}">
-                        <a href="#" class="list-group-item">${star.name}</a>
+                        <g:link  controller="museum" action="doRsearchById" params="[museumId: star.id]">
+                            <p class="glyphicon glyphicon-star"> &nbsp;${star.name}</p>
+                        </g:link>
                     </g:each>
+
                 </div>
 
             </div>

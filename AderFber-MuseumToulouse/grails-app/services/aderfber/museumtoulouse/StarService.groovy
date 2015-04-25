@@ -17,12 +17,9 @@ class StarService {
      * @return List of museums
      */
     def addStar(Museum m) {
-        System.out.print("ID:" + m.id)
-        System.out.print(stars.contains(m))
         if (!stars*.id.contains(m.id)) {
             stars.add(m)
         }
-        System.out.print("nb favoris: " + stars.size())
     }
 
     /**

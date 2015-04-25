@@ -12,22 +12,6 @@ class StarController {
      */
     StarService starService
 
-    def action = {
-        def actionTaken = params.actionTaken
-        Museum m = params.museum
-
-
-
-        switch (actionTaken) {
-            case "addToStars" :
-                addToStars(m)
-                break
-            case "removeToStars" :
-                removeToStars(m)
-                break
-        }
-    }
-
     /**
      * Add the museum <i>m</i>  to the stars list.
      * @param m Museum
@@ -47,6 +31,7 @@ class StarController {
         starService.removeStar(Museum.findById(params['museumId'] as Long))
         redirect(controller: "museum", action: "doResearch")
     }
+
 
     /**
      * Return TRUE if the museum <i>m</i> has already added to list of stars,

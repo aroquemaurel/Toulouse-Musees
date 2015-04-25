@@ -6,11 +6,26 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class MuseumController {
+    /**
+     * Museum service.
+     */
     MuseumService museumService
+
+    /**
+     * Stars service.
+     */
     StarService starService
 
+    /**
+     * Methods to trnasfert data.
+     */
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    /**
+     * Search museums according filters with <i>max</i> elements per page.
+     * @param max Elements max per page
+     * @return new view.
+     */
     def doResearch(Integer max) {
         String name = params.name
         String postalCode = params.postalCode
@@ -31,6 +46,28 @@ class MuseumController {
                                        stars: starService.stars])
     }
 
+    /**
+     * Search a Museum by Id.
+     * @return new veiw of the museum
+     */
+    def doRsearchById() {
+        Museum m = Museum.findById(params['museumId'] as Long)
+        museumService.searchMuseums(
+                m.name.toString(),
+                m.address.street,
+                m.address.postalCode)
+        render(view: '/index', model: [museums: [m], museumsCount: 1,
+                                       postalCodes: m.address.postalCode,
+                                       params:params,
+                                       stars: starService.stars])
+
+    }
+
+    /**
+     *
+     * @param max
+     * @return
+     */
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
 
@@ -38,14 +75,28 @@ class MuseumController {
                                        postalCodes: Address.list([sort: "postalCode", order: "asc"]).postalCode.unique()])
     }
 
+    /**
+     *
+     * @param museumInstance
+     * @return
+     */
     def show(Museum museumInstance) {
         respond museumInstance
     }
 
+    /**
+     *
+     * @return
+     */
     def create() {
         respond new Museum(params)
     }
 
+    /**
+     *
+     * @param museumInstance
+     * @return
+     */
     @Transactional
     def save(Museum museumInstance) {
         if (museumInstance == null) {
@@ -77,10 +128,20 @@ class MuseumController {
         }
     }
 
+    /**
+     *
+     * @param museumInstance
+     * @return
+     */
     def edit(Museum museumInstance) {
         respond museumInstance
     }
 
+    /**
+     *
+     * @param museumInstance
+     * @return
+     */
     @Transactional
     def update(Museum museumInstance) {
         if (museumInstance == null) {
@@ -110,6 +171,11 @@ class MuseumController {
 
     }
 
+    /**
+     *
+     * @param museumInstance
+     * @return
+     */
     @Transactional
     def delete(Museum museumInstance) {
 
@@ -134,6 +200,9 @@ class MuseumController {
 
     }
 
+    /**
+     *
+     */
     protected void notFound() {
 
         request.withFormat {
