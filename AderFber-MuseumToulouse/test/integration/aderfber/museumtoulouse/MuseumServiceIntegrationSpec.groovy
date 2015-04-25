@@ -114,22 +114,22 @@ class MuseumServiceIntegrationSpec extends Specification {
         when:"we search museums where mueseum name contains 'MEDECINE'  "
         List<Museum> res = museumService.searchMuseums("MEDECINE",null,null)
 
-        then:"we get the only museum"
-        res.size() == 1
+        then:"we get 3 museums"
+        res.size() == 3
         res*.id.contains(museum.id);
         res.clear();
 
         when:"we search museums where mueseum address contains 'VIG'  "
         res = museumService.searchMuseums(null, "VIG", null)
         then:"we get the only museum"
-        res.size() == 1
+        res.size() == 3
         res*.id.contains(museum.id);
         res.clear();
 
         when:"we search museums where mueseum postalcode contains '31300'  "
         res = museumService.searchMuseums(null, null, "31300")
         then:"we get the only museum"
-        res.size() == 1
+        res.size() == 3
         res*.id.contains(museum.id);
         res.clear();
 

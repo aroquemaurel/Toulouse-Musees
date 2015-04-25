@@ -20,7 +20,7 @@ class AskingVisitControllerSpec extends Specification {
     void "Test the index action returns the correct model"() {
 
         when: "The index action is executed"
-        controller.index()
+        controller.index(1)
 
         then: "The model is correct"
         !model.askingVisitInstanceList

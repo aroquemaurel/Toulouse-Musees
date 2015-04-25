@@ -26,7 +26,7 @@ class AskingMuseumVisitControllerSpec extends Specification {
                             code: 43,
                             beginPeriodDate: new Date(2101, 1, 1),
                             endPeriodDate: new Date(2015, 1, 1),
-                            nbPeople: 42, status:0).save(failOnError: true)
+                            nbPeople: 2, status:0).save(failOnError: true)
     }
 
     def populateValidParams(params) {
@@ -40,7 +40,7 @@ class AskingMuseumVisitControllerSpec extends Specification {
     void "Test the index action returns the correct model"() {
 
         when:"The index action is executed"
-            controller.index()
+            controller.index(1)
 
         then:"The model is correct"
             !model.askingMuseumVisitInstanceList
