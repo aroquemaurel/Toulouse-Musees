@@ -48,23 +48,6 @@ class MuseumController {
     }
 
     /**
-     * Search a Museum by Id.
-     * @return new veiw of the museum
-     */
-    def doRsearchById() {
-        Museum m = Museum.findById(params['museumId'] as Long)
-        museumService.searchMuseums(
-                m.name.toString(),
-                m.address.street,
-                m.address.postalCode)
-        render(view: '/index', model: [museums: [m], museumsCount: 1,
-                                       postalCodes: m.address.postalCode,
-                                       params:params,
-                                       stars: starService.stars])
-
-    }
-
-    /**
      * Return new view to sort by postal code museums in the list of stars
      * @param max Max elements
      * @return view
@@ -95,113 +78,6 @@ class MuseumController {
         respond new Museum(params)
     }
 
-    /**
-     * Save in database the Museum <i>museumInstance</i>
-     * @param museumInstance Instance of Museum
-     * @return Instance of Museum
-     */
-    @Transactional
-    def save(Museum museumInstance) {
-        if (museumInstance == null) {
-            notFound()
-            return
-        }
-
-        if (museumInstance.hasErrors()) {
-            respond museumInstance.errors, view: 'create'
-            return
-        }
-
-        //Address address = Address.get(museumInstance.address.id)
-        //Manager manager = Manager.get(museumInstance.manager.id)
-        museumService.insertOrUpdateMuseum(
-                museumInstance,
-                museumInstance.address,
-                museumInstance.manager)
-        //museumInstance.save flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message',
-                                    args: [message(code: 'museum.label',
-                                    default: 'Museum'), museumInstance.id])
-                redirect museumInstance
-            }
-            '*' { respond museumInstance, [status: CREATED] }
-        }
-    }
-
-    /**
-     * Change the current Museum by the new <i>museumInstance</i>
-     * @param museumInstance
-     * @return Instance of Museum
-     */
-    def edit(Museum museumInstance) {
-        respond museumInstance
-    }
-
-    /**
-     * Update Instance of Museum <i>museumInstance</i>
-     * @param museumInstance Instance of Museum
-     * @return Museum Instance
-     */
-    @Transactional
-    def update(Museum museumInstance) {
-        if (museumInstance == null) {
-            notFound()
-            return
-        }
-
-        if (museumInstance.hasErrors()) {
-            respond museumInstance.errors, view: 'edit'
-            return
-        }
-        Address address = Address.get(museumInstance.address.id)
-        Manager manager = Manager.get(museumInstance.manager.id)
-        museumService.insertOrUpdateMuseum(museumInstance,address,manager)
-        //museumInstance.save flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message =
-                        message(code: 'default.updated.message',
-                                args: [message(code: 'Museum.label',
-                                default: 'Museum'), museumInstance.id])
-                redirect museumInstance
-            }
-            '*' { respond museumInstance, [status: OK] }
-        }
-
-    }
-
-    /**
-     * Remove the museum <i>museumInstance</i>
-     * @param museumInstance Instance of Museum
-     * @return Instance of Museum
-     */
-    @Transactional
-    def delete(Museum museumInstance) {
-
-        if (museumInstance == null) {
-            notFound()
-            return
-        }
-
-        museumService.deleteMuseum(museumInstance)
-        //museumInstance.delete flush: true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message =
-                        message(code: 'default.deleted.message',
-                                args: [message(code: 'Museum.label',
-                                default: 'Museum'), museumInstance.id])
-                redirect action: "index", method: "GET"
-            }
-            '*' { render status: NO_CONTENT }
-        }
-
-    }
 
     /**
      *

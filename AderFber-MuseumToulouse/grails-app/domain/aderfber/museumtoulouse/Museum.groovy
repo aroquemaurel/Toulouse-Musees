@@ -24,7 +24,11 @@ class Museum {
             return ""
         }
         return name.toLowerCase().capitalize()
+    }
 
+    static mapping = {
+        manager fetch: 'join'
+        address fetch: 'join'
     }
 
 }
