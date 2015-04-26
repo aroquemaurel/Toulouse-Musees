@@ -44,14 +44,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span class="navbar-brand"><g:link mapping="/">Accueil</g:link></span>
+            <span class="navbar-brand"><g:link controller="Museum" action="index">Accueil</g:link></span>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><g:link mapping="/">Accueil</g:link></li>
+                <li><g:link controller="Museum" action="index">Accueil</g:link></li>
                 <li><g:link controller="AskingVisit" action="formList">Les demandes de visites</g:link></li>
                 <li><g:link mapping="about">À-propos</g:link></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
