@@ -24,9 +24,10 @@ class AskingMuseumVisitControllerSpec extends Specification {
                                 name: "Association")).save(failOnError: true)
         askingVisit = new AskingVisit(
                             code: 43,
-                            beginPeriodDate: new Date(2101, 1, 1),
-                            endPeriodDate: new Date(2015, 1, 1),
-                            nbPeople: 2, status:0).save(failOnError: true)
+                            beginPeriodDate: new Date(2015, 6, 6),
+                            endPeriodDate: new Date(2015, 6, 7),
+                            nbPeople: 2,
+                            status:0).save(failOnError: true)
     }
 
     def populateValidParams(params) {
