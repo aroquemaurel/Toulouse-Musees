@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.21)  26 APR 2015 14:45
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.21)  26 APR 2015 15:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1684,11 +1684,11 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 1.
 
 Package epstopdf Info: Source file: <./images/workflow_github.eps>
-(epstopdf)                    date: 2015-04-26 14:28:56
+(epstopdf)                    date: 2015-04-26 15:01:59
 (epstopdf)                    size: 15762 bytes
 (epstopdf)             Output file: <./images/workflow_github-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2015-04-26 14:28:56
+(epstopdf)                    date: 2015-04-26 15:01:59
 (epstopdf)                    size: 9475 bytes
 (epstopdf)             Command: <repstopdf --outfile=./images/workflow_github-e
 ps-converted-to.pdf ./images/workflow_github.eps>
@@ -2013,15 +2013,14 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 1.
 
-<screens/accueil_with_star.png, id=435, 1927.2pt x 1059.96pt>
+<screens/accueil_with_star.png, id=435, 1189.44376pt x 945.5325pt>
 File: screens/accueil_with_star.png Graphic file (type png)
 
 <use screens/accueil_with_star.png>
 Package pdftex.def Info: screens/accueil_with_star.png used on input line 32.
-(pdftex.def)             Requested size: 277.41437pt x 152.5662pt.
+(pdftex.def)             Requested size: 256.0748pt x 203.55965pt.
 
-Overfull \hbox (9.71172pt too wide) in paragraph at lines 32--32
- [] 
+Overfull \vbox (10.18164pt too high) detected at line 32
  []
 
 File: images/Toulouse.png Graphic file (type png)
@@ -2041,19 +2040,14 @@ Overfull \hbox (2.80698pt too wide) has occurred while \output is active
 [20
 
  <./screens/accueil_with_star.png>]
-<screens/info_star_museum.png, id=452, 1927.2pt x 1059.96pt>
+<screens/info_star_museum.png, id=451, 1185.42876pt x 859.21pt>
 File: screens/info_star_museum.png Graphic file (type png)
 
 <use screens/info_star_museum.png>
 Package pdftex.def Info: screens/info_star_museum.png used on input line 32.
-(pdftex.def)             Requested size: 277.41437pt x 152.5662pt.
-
-Overfull \hbox (9.71172pt too wide) in paragraph at lines 32--32
- [] 
- []
-
+(pdftex.def)             Requested size: 263.18799pt x 190.75737pt.
 File: images/Toulouse.png Graphic file (type png)
-<use images/Toulouse.png>
+ <use images/Toulouse.png>
 Package pdftex.def Info: images/Toulouse.png used on input line 32.
 (pdftex.def)             Requested size: 68.28644pt x 39.09477pt.
 
@@ -2069,14 +2063,14 @@ Overfull \hbox (2.80698pt too wide) has occurred while \output is active
 [21
 
  <./screens/info_star_museum.png>]
-<screens/asking_visit.png, id=470, 1927.2pt x 1059.96pt>
+<screens/asking_visit.png, id=468, 1221.56375pt x 774.895pt>
 File: screens/asking_visit.png Graphic file (type png)
 
 <use screens/asking_visit.png>
 Package pdftex.def Info: screens/asking_visit.png used on input line 32.
-(pdftex.def)             Requested size: 277.41437pt x 152.5662pt.
+(pdftex.def)             Requested size: 270.30118pt x 171.45882pt.
 
-Overfull \hbox (9.71172pt too wide) in paragraph at lines 32--32
+Overfull \hbox (2.59853pt too wide) in paragraph at lines 32--32
  [] 
  []
 
@@ -2097,19 +2091,14 @@ Overfull \hbox (2.80698pt too wide) has occurred while \output is active
 [22
 
  <./screens/asking_visit.png>]
-<screens/find_asking_visit.png, id=488, 1927.2pt x 1059.96pt>
+<screens/find_asking_visit.png, id=485, 1197.47375pt x 789.95125pt>
 File: screens/find_asking_visit.png Graphic file (type png)
 
 <use screens/find_asking_visit.png>
 Package pdftex.def Info: screens/find_asking_visit.png used on input line 32.
-(pdftex.def)             Requested size: 277.41437pt x 152.5662pt.
-
-Overfull \hbox (9.71172pt too wide) in paragraph at lines 32--32
- [] 
- []
-
+(pdftex.def)             Requested size: 263.18799pt x 173.609pt.
 File: images/Toulouse.png Graphic file (type png)
-<use images/Toulouse.png>
+ <use images/Toulouse.png>
 Package pdftex.def Info: images/Toulouse.png used on input line 32.
 (pdftex.def)             Requested size: 68.28644pt x 39.09477pt.
 
@@ -2125,14 +2114,14 @@ Overfull \hbox (2.80698pt too wide) has occurred while \output is active
 [23
 
  <./screens/find_asking_visit.png>]
-<screens/asking_visit_state.png, id=507, 1927.2pt x 1059.96pt>
+<screens/asking_visit_state.png, id=503, 1197.47375pt x 703.62875pt>
 File: screens/asking_visit_state.png Graphic file (type png)
 
 <use screens/asking_visit_state.png>
 Package pdftex.def Info: screens/asking_visit_state.png used on input line 32.
-(pdftex.def)             Requested size: 277.41437pt x 152.5662pt.
+(pdftex.def)             Requested size: 270.30118pt x 158.82498pt.
 
-Overfull \hbox (9.71172pt too wide) in paragraph at lines 32--32
+Overfull \hbox (2.59853pt too wide) in paragraph at lines 32--32
  [] 
  []
 
@@ -2178,7 +2167,7 @@ Overfull \hbox (2.80698pt too wide) has occurred while \output is active
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 105.
 
-<questions.png, id=543, 77.088pt x 77.088pt>
+<questions.png, id=538, 77.088pt x 77.088pt>
 File: questions.png Graphic file (type png)
  <use questions.png>
 Package pdftex.def Info: questions.png used on input line 111.
@@ -2220,26 +2209,23 @@ Package rerunfilecheck Info: File `diapo.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 112.
  ) 
 Here is how much of TeX's memory you used:
- 28397 strings out of 493304
- 534106 string characters out of 6139871
+ 28394 strings out of 493304
+ 534078 string characters out of 6139871
  622604 words of memory out of 5000000
- 31084 multiletter control sequences out of 15000+600000
+ 31082 multiletter control sequences out of 15000+600000
  63904 words of font info for 71 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  50i,21n,65p,10436b,1039s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation28} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/
-uzdr.pfb>
-Output written on diapo.pdf (26 pages, 505529 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfdin
+g/uzdr.pfb>
+Output written on diapo.pdf (26 pages, 412179 bytes).
 PDF statistics:
- 587 PDF objects out of 1000 (max. 8388607)
- 502 compressed objects within 6 object streams
- 66 named destinations out of 1000 (max. 500000)
+ 581 PDF objects out of 1000 (max. 8388607)
+ 501 compressed objects within 6 object streams
+ 65 named destinations out of 1000 (max. 500000)
  300 words of extra memory for PDF output out of 10000 (max. 10000000)
 
