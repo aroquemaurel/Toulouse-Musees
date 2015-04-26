@@ -1,0 +1,112 @@
+\documentclass{beamer}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage[overlay,absolute]{textpos}
+
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+
+\makeatletter
+\hypersetup{pdfpagemode=FullScreen}
+
+\newcommand{\firstlogo}{images/ups.jpg}
+\newcommand{\secondlogo}{images/Toulouse.png}
+\newcommand{\footsubject}{Architecture multi-couches et développement avec Java EE} % Subject in footer
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\newcommand{\rgbcolortheme}{119,30,72}
+
+\mode<presentation> {
+	\usepackage{../beamer-theme/beamerthemeUNLTheme}
+}
+
+\title[] % Not required. If title is too long 
+{Toulouse Musée}
+\subtitle{Architecture multi-couches et développement avec Java EE}
+
+\newcommand{\authors}{%
+Antoine de \bsc{Roquemaurel}\newline Florent \bsc{Berbie}
+}
+
+\newcommand{\FlorentSpeak}{%
+\author[
+\textbf{\color{white} F}lorent\\
+{A}ntoine
+]{\authors}
+}
+
+\newcommand{\AntoineSpeak}{%
+\author[
+{F}lorent\\
+\textbf{\color{white} A}ntoine
+]{\authors}
+}
+
+\newcommand{\NoOneSpeak}{%%
+\author[
+Florent\\
+Antoine
+]{\authors}
+}
+
+
+\institute[] 
+{
+  Universit\'e Toulouse III -- Paul Sabatier \\
+  M1 Informatique -- Développement Logiciel 
+  \vspace{-10px}
+}
+\date[ ~ ~ ~ 27 / 04 / 2015] % In footer 
+{Lundi 27 Avril 2015}
+
+
+ % Toc for each section
+\AtBeginSection[] {
+  \begin{frame}<beamer>{Ligne directrice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\NoOneSpeak
+\begin{document}
+	\sidetoc{no}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	\input{contents/intro.tex}
+	\begin{frame}
+		\tableofcontents
+	\end{frame}
+	\sidetoc{yes}
+	\section{Organisation du travail} % TODO
+	\input{contents/organization/github.tex}
+	\input{contents/organization/pair-programming.tex}
+	\section{Conception de l'application} % TODO
+	\input{contents/technical_work/domain.tex}
+	\input{contents/technical_work/services.tex}
+	\input{contents/technical_work/code_quality.tex}
+	\section{Résultats} % TODO	
+	\input{contents/results/museums_search.tex}
+	\input{contents/results/stars_and_visits.tex}
+	\section{}
+	\input{contents/conclude.tex}
+	\sidetoc{no}
+	\NoOneSpeak
+	\begin{frame}{Avez-vous des questions ?}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=5cm]{questions.png}
+		\end{figure}
+	\end{frame}
+\end{document}
