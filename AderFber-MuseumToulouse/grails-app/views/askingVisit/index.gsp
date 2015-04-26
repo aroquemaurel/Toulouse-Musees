@@ -1,62 +1,37 @@
-
-<%@ page import="aderfber.museumtoulouse.AskingVisit" %>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'askingVisit.label', default: 'AskingVisit')}" />
-		<title><g:message code="default.list.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#list-askingVisit" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
+<head>
+	<meta name="layout" content="main"/>
+	<title>Toulouse-Musees</title>
+</head>
+<body>
+<div class="jumbotron">
+	<h2>Demander à visiter un musée</h2>
+	<p style="font-size: 12pt">Vous pouvez visiter les musées que vous souhaitez, il suffit de remplir le formulaire !
+	</p>
+</div>
+
+<g id="controller-list" role="navigation">
+	<div class="row">
+		<g:if test="${errors}">
+		<div class="alert alert-danger">
+			<g:each in="${errors}" var="${error}">
+				<g:if test="${error} == 'UNVALID_ASKING_VISIT'">
+					<b>Erreur</b> Une erreur a eu lieu pendant l'ajout de la demande de visite : votre formulaire est invalide.
+				</g:if>
+			</g:each>
 		</div>
-		<div id="list-askingVisit" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table>
-			<thead>
-					<tr>
-					
-						<g:sortableColumn property="code" title="${message(code: 'askingVisit.code.label', default: 'Code')}" />
-					
-						<g:sortableColumn property="beginPeriodDate" title="${message(code: 'askingVisit.beginPeriodDate.label', default: 'Begin Period Date')}" />
-					
-						<g:sortableColumn property="endPeriodDate" title="${message(code: 'askingVisit.endPeriodDate.label', default: 'End Period Date')}" />
-					
-						<g:sortableColumn property="nbPeople" title="${message(code: 'askingVisit.nbPeople.label', default: 'Nb People')}" />
-					
-						<g:sortableColumn property="status" title="${message(code: 'askingVisit.status.label', default: 'Status')}" />
-					
-					</tr>
-				</thead>
-				<tbody>
-				<g:each in="${askingVisitInstanceList}" status="i" var="askingVisitInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${askingVisitInstance.id}">${fieldValue(bean: askingVisitInstance, field: "code")}</g:link></td>
-					
-						<td><g:formatDate date="${askingVisitInstance.beginPeriodDate}" /></td>
-					
-						<td><g:formatDate date="${askingVisitInstance.endPeriodDate}" /></td>
-					
-						<td>${fieldValue(bean: askingVisitInstance, field: "nbPeople")}</td>
-					
-						<td>${fieldValue(bean: askingVisitInstance, field: "status")}</td>
-					
-					</tr>
-				</g:each>
-				</tbody>
-			</table>
-			<div class="pagination">
-				<g:paginate total="${askingVisitInstanceCount ?: 0}" />
-			</div>
+		</g:if>
+		<div class="col-md-7 ">
+			<g:render template="askingVisitForm" model="[ museum:museum, params:params  ]" />
 		</div>
-	</body>
+		</div>
+		<div class="col-md-offset-1 col-md-4">
+			<g:render template="/stars/list" model="[ stars : stars ]" />
+		</div>
+	</div>
+
+</g>
+</body>
 </html>
+

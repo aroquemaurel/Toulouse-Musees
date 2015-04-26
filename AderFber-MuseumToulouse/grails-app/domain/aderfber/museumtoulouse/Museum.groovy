@@ -18,4 +18,17 @@ class Museum {
         address nullable: false
         manager nullable: false
     }
+
+    public String getName() {
+        if (name == null) {
+            return ""
+        }
+        return name.toLowerCase().capitalize()
+    }
+
+    static mapping = {
+        manager fetch: 'join'
+        address fetch: 'join'
+    }
+
 }

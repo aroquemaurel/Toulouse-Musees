@@ -1,0 +1,12 @@
+.pagination .step {
+    padding-left: 3px;
+
+}
+
+.pagination .currentStep {
+    padding-left: 3px;
+}
+
+.pagination .nextLink {
+    padding-left: 3px;
+}
