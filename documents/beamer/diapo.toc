@@ -5,8 +5,8 @@
 \beamer@subsectionintoc {1}{2}{Le Pair-Programming}{8}{0}{1}
 \beamer@sectionintoc {2}{Comp\IeC {\'e}tences techniques}{11}{0}{2}
 \beamer@subsectionintoc {2}{1}{Domaines m\IeC {\'e}tier}{12}{0}{2}
-\beamer@subsectionintoc {2}{2}{Services}{12}{0}{2}
-\beamer@subsectionintoc {2}{3}{Qualit\'e du code}{16}{0}{2}
-\beamer@sectionintoc {3}{Recherche, favoris et demande de visite}{19}{0}{3}
-\beamer@subsectionintoc {3}{1}{Recherche des mus\'ees}{20}{0}{3}
-\beamer@subsectionintoc {3}{2}{Mus\'es favoris et demande de visite}{24}{0}{3}
+\beamer@subsectionintoc {2}{2}{Services}{13}{0}{2}
+\beamer@subsectionintoc {2}{3}{Qualit\'e du code}{17}{0}{2}
+\beamer@sectionintoc {3}{Recherche, favoris et demande de visite}{20}{0}{3}
+\beamer@subsectionintoc {3}{1}{Recherche des mus\'ees}{21}{0}{3}
+\beamer@subsectionintoc {3}{2}{Mus\'es favoris et demande de visite}{25}{0}{3}
