@@ -26,6 +26,16 @@
                 </g:each>
             </div>
         </g:if>
+        <g:if test="${successToStars}">
+            <div class="alert alert-success">
+                        <b>Succès</b> Ce musée à bien été ajouté à vos favoris.
+            </div>
+        </g:if>
+        <g:if test="${successUnstars}">
+            <div class="alert alert-success">
+                <b>Succès</b> Ce musée à bien été retiré de vos favoris.
+            </div>
+        </g:if>
 
         <div class="col-md-7 ">
             <g:render template="/museum/searchForm" model="[ postalCodes: postalCodes]" />

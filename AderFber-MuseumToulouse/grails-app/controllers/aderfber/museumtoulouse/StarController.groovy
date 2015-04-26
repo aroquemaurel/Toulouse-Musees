@@ -19,7 +19,7 @@ class StarController {
      */
     def addToStars() {
         starService.addStar(Museum.findById(params['museumId'] as Long))
-        redirect(controller: "museum", action: "doResearch")
+        redirect(controller: "museum", action: "doResearch", params: [successToStars: 1])
     }
 
     /**
@@ -29,7 +29,7 @@ class StarController {
      */
     def removeToStars() {
         starService.removeStar(Museum.findById(params['museumId'] as Long))
-        redirect(controller: "museum", action: "doResearch")
+        redirect(controller: "museum", action: "doResearch", params: [successUnstars: 1])
     }
 
 
