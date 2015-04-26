@@ -9,4 +9,4 @@
 \beamer@subsectionintoc {2}{3}{Qualit\'e du code}{16}{0}{2}
 \beamer@sectionintoc {3}{Recherche, favoris et demande de visite}{19}{0}{3}
 \beamer@subsectionintoc {3}{1}{Recherche des mus\'ees}{20}{0}{3}
-\beamer@subsectionintoc {3}{2}{Mus\'es favoris et demande de visite}{20}{0}{3}
+\beamer@subsectionintoc {3}{2}{Mus\'es favoris et demande de visite}{24}{0}{3}
