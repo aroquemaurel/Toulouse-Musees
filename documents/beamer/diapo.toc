@@ -3,10 +3,10 @@
 \beamer@sectionintoc {1}{Organisation du travail}{4}{0}{1}
 \beamer@subsectionintoc {1}{1}{Github et travail collaboratif}{5}{0}{1}
 \beamer@subsectionintoc {1}{2}{Le Pair-Programming}{8}{0}{1}
-\beamer@sectionintoc {2}{Comp\IeC {\'e}tences techniques}{11}{0}{2}
-\beamer@subsectionintoc {2}{1}{Domaines m\IeC {\'e}tier}{12}{0}{2}
-\beamer@subsectionintoc {2}{2}{Services}{13}{0}{2}
-\beamer@subsectionintoc {2}{3}{Qualit\'e du code}{17}{0}{2}
-\beamer@sectionintoc {3}{Recherche, favoris et demande de visite}{20}{0}{3}
-\beamer@subsectionintoc {3}{1}{Recherche des mus\'ees}{21}{0}{3}
-\beamer@subsectionintoc {3}{2}{Mus\'es favoris et demande de visite}{25}{0}{3}
+\beamer@sectionintoc {2}{Conception de l'application}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{Domaine m\IeC {\'e}tier}{11}{0}{2}
+\beamer@subsectionintoc {2}{2}{Services}{12}{0}{2}
+\beamer@subsectionintoc {2}{3}{Qualit\'e du code}{15}{0}{2}
+\beamer@sectionintoc {3}{R\IeC {\'e}sultats}{17}{0}{3}
+\beamer@subsectionintoc {3}{1}{Recherche des mus\'ees}{18}{0}{3}
+\beamer@subsectionintoc {3}{2}{Mus\'es favoris et demande de visite}{22}{0}{3}
