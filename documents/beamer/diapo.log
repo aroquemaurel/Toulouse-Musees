@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  26 APR 2015 12:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  26 APR 2015 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1695,7 +1695,7 @@ ps-converted-to.pdf ./images/workflow_github.eps>
 (epstopdf)             \includegraphics on input line 13.
 Package epstopdf Info: Output file is already uptodate.
 
-<./images/workflow_github-eps-converted-to.pdf, id=146, 900.36375pt x 634.37pt>
+<./images/workflow_github-eps-converted-to.pdf, id=147, 900.36375pt x 634.37pt>
 File: ./images/workflow_github-eps-converted-to.pdf Graphic file (type pdf)
 <use ./images/workflow_github-eps-converted-to.pdf>
 Package pdftex.def Info: ./images/workflow_github-eps-converted-to.pdf used on 
@@ -1935,7 +1935,57 @@ Overfull \hbox (2.80698pt too wide) has occurred while \output is active
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 1.
 
-) (./diapo.toc)
+File: images/Toulouse.png Graphic file (type png)
+<use images/Toulouse.png>
+Package pdftex.def Info: images/Toulouse.png used on input line 20.
+(pdftex.def)             Requested size: 68.28644pt x 39.09477pt.
+
+Overfull \hbox (193.67882pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+Overfull \hbox (2.80698pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[16
+
+]
+File: images/Toulouse.png Graphic file (type png)
+ <use images/Toulouse.png>
+Package pdftex.def Info: images/Toulouse.png used on input line 20.
+(pdftex.def)             Requested size: 68.28644pt x 39.09477pt.
+
+Overfull \hbox (193.67882pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+Overfull \hbox (2.80698pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[17
+
+]
+File: images/Toulouse.png Graphic file (type png)
+ <use images/Toulouse.png>
+Package pdftex.def Info: images/Toulouse.png used on input line 20.
+(pdftex.def)             Requested size: 68.28644pt x 39.09477pt.
+
+Overfull \hbox (193.67882pt too wide) has occurred while \output is active
+ [][]  
+ []
+
+
+Overfull \hbox (2.80698pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[18
+
+]) (./diapo.toc)
 File: images/Toulouse.png Graphic file (type png)
  <use images/Toulouse.png>
 Package pdftex.def Info: images/Toulouse.png used on input line 99.
@@ -1950,7 +2000,7 @@ Overfull \hbox (2.80698pt too wide) has occurred while \output is active
 [][] 
  []
 
-[16
+[19
 
 ] (./contents/results/museums_search.tex
 
@@ -1981,14 +2031,14 @@ Overfull \hbox (2.80698pt too wide) has occurred while \output is active
 [][] 
  []
 
-[17
+[20
 
 ])
 
 Package hyperref Warning: Option `pdfauthor' has already been used,
 (hyperref)                setting the option has no effect on input line 105.
 
-<questions.png, id=401, 77.088pt x 77.088pt>
+<questions.png, id=450, 77.088pt x 77.088pt>
 File: questions.png Graphic file (type png)
  <use questions.png>
 Package pdftex.def Info: questions.png used on input line 111.
@@ -2008,7 +2058,7 @@ Overfull \hbox (2.80698pt too wide) has occurred while \output is active
 [][] 
  []
 
-[18
+[21
 
  <./questions.png>]
 \tf@nav=\write6
@@ -2026,14 +2076,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 112.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 112.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 112.
 Package rerunfilecheck Info: File `diapo.out' has not changed.
-(rerunfilecheck)             Checksum: 3FD8F5E9EEFD2A7B7F8CC5430C97D97E;694.
+(rerunfilecheck)             Checksum: A149BBBE89544909F5E4B14C31BC4568;694.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 112.
  ) 
 Here is how much of TeX's memory you used:
- 28346 strings out of 493304
- 533099 string characters out of 6139871
+ 28355 strings out of 493304
+ 533188 string characters out of 6139871
  622604 words of memory out of 5000000
- 31056 multiletter control sequences out of 15000+600000
+ 31059 multiletter control sequences out of 15000+600000
  63904 words of font info for 71 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  50i,21n,65p,10436b,1039s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2043,10 +2093,10 @@ e/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive
 fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfdin
 g/uzdr.pfb>
-Output written on diapo.pdf (18 pages, 145161 bytes).
+Output written on diapo.pdf (21 pages, 153544 bytes).
 PDF statistics:
- 441 PDF objects out of 1000 (max. 8388607)
- 376 compressed objects within 4 object streams
- 49 named destinations out of 1000 (max. 500000)
+ 492 PDF objects out of 1000 (max. 8388607)
+ 423 compressed objects within 5 object streams
+ 55 named destinations out of 1000 (max. 500000)
  275 words of extra memory for PDF output out of 10000 (max. 10000000)
 
