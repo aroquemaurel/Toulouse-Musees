@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.24pt}
+\select@language {french}
+\beamer@sectionintoc {1}{Organisation du travail}{4}{0}{1}
+\beamer@subsectionintoc {1}{1}{Github et travail collaboratif}{5}{0}{1}
+\beamer@subsectionintoc {1}{2}{Le Pair-Programming}{8}{0}{1}
+\beamer@sectionintoc {2}{Le travail}{11}{0}{2}
+\beamer@subsectionintoc {2}{1}{Domaines}{12}{0}{2}
+\beamer@subsectionintoc {2}{2}{Services}{12}{0}{2}
+\beamer@subsectionintoc {2}{3}{Qualit\'e du code}{12}{0}{2}
+\beamer@sectionintoc {3}{R\IeC {\'e}sultats}{12}{0}{3}
+\beamer@subsectionintoc {3}{1}{Recherche des mus\'ees}{13}{0}{3}
+\beamer@subsectionintoc {3}{2}{Mus\'es favoris et demande de visite}{13}{0}{3}
