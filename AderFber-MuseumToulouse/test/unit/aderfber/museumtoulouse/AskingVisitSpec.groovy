@@ -1,8 +1,6 @@
 package aderfber.museumtoulouse
-
 import grails.test.mixin.TestFor
 import spock.lang.Specification
-import spock.lang.Unroll
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
@@ -53,5 +51,36 @@ class AskingVisitSpec extends Specification {
         22      | new Date(1989,7,18)   | new Date(1989,7,19)   | 5         | 3
         22      | new Date(1989,7,18)   | new Date(1989,7,19)   | 5         | -1
         22      | new Date(1989,7,20)   | new Date(1989,7,19)   | 5         | -1
+    }
+
+
+    void "test status of the asking visit"() {
+        given: "An asking visit is created"
+        def list = ["En cours de traitement", "Accepté", "Refusé"];
+        AskingVisit myAskingVisit = new AskingVisit(
+                code: 1,
+                beginPeriodDate: new Date(1989,7,18),
+                endPeriodDate: new Date(1989,7,19),
+                nbPeople: 2,
+                status: 0)
+
+        when: "Asking visit status is 'En cours de traitement' (0)"
+        myAskingVisit.status = 0
+
+        then: "status is 'En cours de traitement'"
+        myAskingVisit.statusToString() == list[0]
+
+        when: "Asking visit status is 'Accepté' (1)"
+        myAskingVisit.status = 1
+
+        then: "Status is 'Accepté'"
+        myAskingVisit.statusToString() == list[1]
+
+        when: "Asking visit status is 'Refusé' (2)"
+        myAskingVisit.status = 2
+
+        then: "Status us 'Refusé'"
+        myAskingVisit.statusToString() == list[2]
+
     }
 }

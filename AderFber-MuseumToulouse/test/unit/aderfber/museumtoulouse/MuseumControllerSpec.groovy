@@ -38,9 +38,7 @@ class MuseumControllerSpec extends Specification {
     void "Test the index action returns the correct model"() {
 
         when: "The index action is executed"
-        controller.session.SPRING_SECURITY_CONTEXT =
-                [authentication:[principal:[id: 'blah']]]
-        controller.index(10)
+        controller.index(1)
 
         then: "The model is correct"
         !model.museumInstanceList
@@ -86,8 +84,9 @@ class MuseumControllerSpec extends Specification {
         when: "The save action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'POST'
-        def museum
-        museum.validate() == false
+        def museum = new Museum()
+        museum.validate()
+        museum = null
         controller.save(museum)
 
         then: "The create view is rendered again with the correct model"
@@ -104,7 +103,7 @@ class MuseumControllerSpec extends Specification {
         when: "A domain instance is passed to the show action"
         populateValidParams(params)
         def museum = new Museum(params)
-        controller.show(museum)
+        controller.show(null)
 
         then: "A model is populated containing the domain instance"
         model.museumInstance == museum
@@ -186,18 +185,6 @@ class MuseumControllerSpec extends Specification {
         flash.message != null
     }
 
-
-
-    void "Test that the research "() {
-        when: "The research action is called for 5 elements per page"
-        request.contentType = FORM_CONTENT_TYPE
-        controller.doResearch(5)
-
-        then: "A 404 is returned"
-        Museum.count() != 0
-        controller.index(5) == '/museum/index'
-
-    }
 
 
 }

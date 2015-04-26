@@ -8,7 +8,7 @@
 <body>
 <div class="jumbotron">
     <h2>Bienvenue sur Toulouse-Musees</h2>
-    <p style="font-size: 12pt">Ce site à pour but de faciliter  musées dans Toulouse,
+    <p style="font-size: 12pt">Ce site à pour but de faciliter musées dans Toulouse,
     de gérer une liste de musées favoris, ainsi que de pouvoir demander la visite d'un
     musée.
     </p>
